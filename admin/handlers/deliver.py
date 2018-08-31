@@ -8,18 +8,17 @@ Created on 2018年7月26日
 
 from __future__ import absolute_import
 
-import time
 import math
+import time
 
 from towgo.handler import TornadoHttpHandler
 from towgo.utils.extend import Odict
 
-from admin.common.result import returns
-from app.services.user import DeliverService, UserGoodsService
-from app.services.user import UserDeliverAddressService
-from app.models.user import DeliverInfo, UserDeliverAddress, UserGoods
-
 from admin.common import constants
+from admin.common.result import returns
+from app.models.user import DeliverInfo, UserDeliverAddress, UserGoods, UserPay
+from app.services.user import DeliverService, UserGoodsService, UserPayService
+from app.services.user import UserDeliverAddressService
 from utils import time_util
 
 
@@ -111,6 +110,13 @@ class DeliverHandler(TornadoHttpHandler):
         info['create_date'] = ug.create_date
         info['status'] = ug.status
 
+        info['amount'] = ''
+        info['pay_date'] = ''
+        pay = UserPayService(UserPay).get(user_goods_id=order_id)  
+        if pay:
+            info['amount'] = pay.amount 
+            info['pay_date'] = pay.create_date
+            
         udas = UserDeliverAddressService(UserDeliverAddress)
         address = udas.get(id=ug.deliver_address_id, status=1) or udas.get(id=ug.deliver_address_id, status=0)
               

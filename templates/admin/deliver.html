@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+</head>  
+  
+<body>  
+  <h3>订单信息：</h3>  
+  
+  <div style="padding: 2px; border: 0px solid #ddd;">
+		<form class="pop-response" action="/admin/deliver" method="get">
+			订单ID:
+			<input type="text" name="order_id" value="${order_id}"  size="20"/>
+			&emsp;&emsp;
+			订单编号:
+			<input type="text" name="code" value="${code}"  size="25"/>
+			&emsp;&emsp;
+			<button type="submit">提交</button>
+		</form>	
+		
+		% if msg:
+			<p id="alert" style="color:red">${msg}</p>   
+		% else:  
+		    % if status == 1:
+		        <p style="color:blue;font-weight:bold;">待发货</p> 
+		    % else: 
+			    % if status == 0:
+			        <span style="color:red;font-weight:bold;">待支付</span>
+			    % else:
+			        <p style="color:green;font-weight:bold;">已发货</p> 
+			 	% endif 	
+		    % endif
+		    
+		    <div style="padding: 2px; border: 1px solid #ddd;">
+			<p>订单ID  : ${order_id} <p />
+			<p>订单编号  : ${code} <p />
+			<p>用户ID  : ${user_id} <p />
+			<p>商品ID : ${goods_id} <p />	
+			<p>商品名称 : ${goods_name} <p />		
+			<p>数量 : ${number} <p />
+			<p>喂养时长 : ${feed_day} 天<p />
+			<p>订购日期 : ${create_date} <p />
+			</div>
+			<div style="padding: 2px; border: 1px solid #ddd;">			
+			<p>收货人姓名 : ${name} <p />
+			<p>收货人电话 : ${phone} <p />
+			<p>收货人地址 : ${address} <p />
+			</div>
+			<div style="padding: 2px; border: 1px solid #ddd;">
+			% if status == 1:
+			    <p>应发货日期 : ${deliver_date}  &emsp;&emsp;&emsp;&emsp;今天是 : ${today} <p />	
+				<form class="pop-response" action="/admin/deliver" method="post">
+				    <input type="hidden" name="order_id" value="${order_id}" required="required"/><p />
+					<p>快递名称 :
+					<select name="express_name" >
+					   % for item in li:
+					     <option value="${item}">${item}</option>
+					   % endfor  
+					</select> 			
+					<p />
+					<p>快递单号 :
+					<input type="text" name="express_no" value="${express_no}" required="required" size="30"/><p />	
+					<p><button type="submit">提交</button><p />	
+				</form>	
+			% else:
+			    <p>发货日期 : ${deliver_date} <p />	
+			    %if status != 0:
+					<p>快递名称 : ${express_name} <p />
+					<p>快递单号 : ${express_no} <p />
+				% endif	
+			% endif	
+			</div>
+		% endif
+		
+  </div>                     
+</body>
+  
+</html>

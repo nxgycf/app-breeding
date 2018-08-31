@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	<script src="../../static/js/jquery-1.11.2.min.js"></script>
+	<script src="../../static/js/breeding.js"></script>
+	<script type="text/javascript">
+		if (window.addEventListener) {
+			window.addEventListener("load",init);
+		} else if(window.attachEvent()){   //IE浏览器不支持addEventListener
+			window.attachEvent("onload",init);  //IE浏览器在写时间的时候必须加上on
+		}
+	
+		function init(){
+			var left = document.getElementById("left");
+			left.onclick = function (){
+				leftNum();   
+			}
+			
+			var right = document.getElementById("right");
+			right.onclick = function (){
+				rightNum();
+			}
+			
+			function leftNum(){
+				var center = document.getElementById("center").innerHTML;
+				if (center > 1) {   //如果中间显示的数大于1
+					center--;       //自减
+					currentNum(center);  //中间显示自减后的数值
+				}
+			}
+			
+			function rightNum(){
+				var center = document.getElementById("center").innerHTML;
+				//如果中间显示的数值小于最大的数
+				if (center < 100){
+					center++;  //自加
+					currentNum(center);   //在中间显示自加后的数值
+				}
+			}
+			
+			function currentNum(num){
+				center.innerHTML = num;   //在中间显示相应的数值
+				document.getElementById("num").value = num;
+				
+				var total = parseFloat(document.getElementById("price").value)*num;
+				var last_total = parseFloat(document.getElementById("last_price").value)*num;
+				
+				var dis_amount = parseFloat(document.getElementById("dis_amount").value);
+				var dis_num= parseInt(document.getElementById("dis_num").value);
+				var tm = parseInt(num/dis_num)*dis_amount;
+				
+				last_total = last_total - tm;
+				document.getElementById("amount").innerHTML = '￥' + last_total.toFixed(1);
+				
+				var discount = total - last_total;
+				document.getElementById("discount").innerHTML = '- ￥' + discount.toFixed(1);
+			}
+		}	
+		
+		function select_addr(){
+		    var goods_id = document.getElementById("goods_id").value;
+		    var num = document.getElementById("center").innerHTML;
+		    window.location.href='/user/select_address?goods_id='+goods_id+'&num='+num;
+		}    
+	</script>
+</head>
+<body>
+    <header id="title" class="text-center">农场精品</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>
+	<div class="stitle">
+		<div class="st">物品订购</div> 
+		<a href="/app"><img src="../../static/image/index.png"/></a>
+	</div>    
+	
+    <div class="farm">
+        % if address:
+		    <a href="javascript:select_addr();">
+		    	 	<div class="text">	
+			        <p><span class="name">${address['name']}</span>  &nbsp;&nbsp;&nbsp;  ${address['phone']}</p>
+			        <p>${address['address']}</p>
+			        % if alert:
+			            <p><span class="alert">${alert}</span></p>
+			        % endif    
+			    </div>
+		    </a>
+	    % else:
+		    <a href="/user/edit_address?action=1">
+		    	 	<div class="text">	
+			        % if alert:
+			            <p><span class="alert">${alert}</span></p>
+			        % endif  
+			    </div>
+		    </a>
+	    % endif
+	    
+        <a href="/goods/detail?goods_id=${id}">
+			<div class="goods-item">		        
+		        <ul><li>
+	                <img class="tp" src="${avatar}" alt="商品图片" >
+	                <div class="ti">
+		                <p class="name">${name}</p><br/>
+		                <p class="brief">${brief}</p><br/>   
+		                
+		                <p class="discount">${dis_desc}</p><br/>
+		                % if last_price < price:
+		                    <p class="price">￥${last_price}  <span class="nprice">￥${price}</span></p>
+		                % else:
+		                    <p class="price">￥${price} </p>
+		                % endif
+	                </div>
+		        </li></ul>
+			</div>
+		</a>	
+		
+	 	<div class="sn">	  
+	 	    <div class="text"><p>数量选择 : </p></div>
+	 	    <div class="box">
+				<div id="left">-</div>
+				<div id="center">${attach['num']}</div>
+				<div id="right">+</div>
+	        </div>
+	    </div>  
+	    
+		<div class="order-pay">
+    	 	    <div class="bl">
+    	 	        <p class="left">优惠 :</p>
+    	 	        <p class="right"><span id="discount" class="discount">- ￥${discount}</span></p>
+    	 	    </div>   
+    	 	    <div class="bl">
+    	 	        <p class="left">应付款 :</p>
+    	 	        <p class="right"><span id="amount" class="amount">￥${amount}</span> &nbsp;元</p>
+    	 	    </div>   
+	    </div>
+    	     
+    </div> 
+	
+	% if alert:
+		<div class="gray_menu">
+	        <input id="goods_id" type="hidden" name="goods_id" value="${id}" >
+	        <input id="num" type="hidden" name="num" value="${attach['num']}" >
+	        <input id="price" type="hidden" name="price" value="${price}" >
+            <input id="last_price" type="hidden" name="last_price" value="${last_price}" >
+	        <input id="dis_num" type="hidden" name="dis_num" value="${dis_num}" >
+	        <input id="dis_amount" type="hidden" name="dis_amount" value="${dis_amount}" >  
+	        <input id="address_id" type="hidden" name="address_id" value="${attach['address_id']}" >
+		    <button>${alert}</button> 
+	    </div> 
+	% else:    
+		<div class="confirm_menu">
+		    <!--
+		    <form action="/goods/buy" method="post"> 
+		    		<button type="submit">确认购买</button>  
+		    </form>
+		    -->
+		    <div> 
+		        <input id="goods_id" type="hidden" name="goods_id" value="${id}" >
+		        <input id="num" type="hidden" name="num" value="${attach['num']}" >
+		        <input id="price" type="hidden" name="price" value="${price}" >
+	            <input id="last_price" type="hidden" name="last_price" value="${last_price}" >
+		        <input id="dis_num" type="hidden" name="dis_num" value="${dis_num}" >
+		        <input id="dis_amount" type="hidden" name="dis_amount" value="${dis_amount}" >  
+		        <input id="address_id" type="hidden" name="address_id" value="${attach['address_id']}" >
+		        <button id="buy">确认购买</button>  
+		    </div>
+		</div> 
+    % endif  	
+	    
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	
+</body>    
+</html>

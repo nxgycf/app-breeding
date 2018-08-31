@@ -1,0 +1,18 @@
+[2018-08-27 18:02:08,954]-result.py:58-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 336, in _post
+    data = self.request_unifiedorder(order_code, amount)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 414, in request_unifiedorder
+    'openid': self.user.openid,
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'openid'
+
+[2018-08-27 18:04:33,604]-result.py:58-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 333, in _post
+    return Result(alert.FAIL, message='hehe')()
+TypeError: __init__() got an unexpected keyword argument 'message'
+

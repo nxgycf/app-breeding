@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>breeding</title>
+    <link href="../../static/css/main.css" rel="stylesheet">
+    <script src="../../static/js/jquery-1.11.2.min.js"></script>
+    
+	<script>
+	    //$(function () {});
+        $(document).ready(function() {
+        
+            var auth = $("#auth").val();
+            
+            //点击事件
+            $("div .subMenu").click(function () {
+                // 取消当前激活状态
+                var $img = $(".active>img");
+                //返回被选元素的属性值
+                var name = $img.attr("img-name");
+                var src = "../static/image/" + name + ".png";
+                $img.attr("src", src);            
+                $(".active").removeClass("active");
+    
+                // 添加新状态
+                $(this).addClass("active");
+                //找到所有 div(subMenu) 的子元素(img)
+                $img = $(this).children("img");
+                name = $img.attr("img-name");
+                src = "../static/image/" + name + "_active.png";
+                //设置img的属性和值。
+                $img.attr("src", src);
+
+                var value = $(this).attr("value"); 
+                if(value){
+                    $("#title").text(value);
+                }
+                       
+                //content根据点击按钮加载不同的html
+	            if(auth){
+		            window.location.href=auth;
+	            }else{
+	                var page = $(this).attr("data-src");
+	                if(page){
+	                    $("#content").load(page);
+	                }
+	            }    
+            });
+    
+            // 自动点击第一个菜单
+			var index = $("#index").val();
+            $("div .subMenu")[index].click();
+        });
+    
+        /*content高度*/
+        function initSize() {
+            var height = $(window).height() - $("header").height() - $("#description").height() - $("#menu").height();
+            $("#content").height(height + "px");
+        }  
+	</script>    
+    
+</head>
+
+<body onload="initSize()" onresize="initSize()">
+	<!--top-->
+	<header id="title" class="text-center"></header>
+	<!--content-->
+	<div id="content"></div>
+	<input id="index" type="hidden" name="index" value="${index}" >
+	<input id="auth" type="hidden" name="auth" value="${auth}" >
+	<!--bottom-->
+	<div id="menu" class="menu">
+	    <div id="one" class="subMenu text-center" data-src="/goods/list" value="农场精品">
+	        <img class="menu_img" img-name="farm" src="../../static/image/farm.png"/>
+	        <div class="menu_name">农场</div>
+	    </div>
+	    <div id="two" class="subMenu text-center" data-src="/user/order_list" value="我的订单">
+	        <img class="menu_img" img-name="order" src="../../static/image/order.png"/>
+	        <div class="menu_name">订单</div>
+	    </div>
+	    <div id="three" class="subMenu text-center" data-src="/user/info" value="个人信息">
+	        <img class="menu_img" img-name="my" src="../../static/image/my.png"/>
+	        <div class="menu_name">我的</div>
+	    </div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+[2018-08-22 11:15:12,140]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 413, in _get
+    ftext, stext, after = self.get_text(order, d['deliver_date'], goods.type)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 438, in get_text
+    return ftext_data[t], stext, safter
+IndexError: tuple index out of range
+
+[2018-08-22 11:16:29,399]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 413, in _get
+    ftext, stext, after = self.get_text(order, d['deliver_date'], goods.type)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 439, in get_text
+    return ftext_data[t], stext, safter
+IndexError: tuple index out of range
+
+[2018-08-22 11:17:27,520]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 413, in _get
+    ftext, stext, after = self.get_text(order, d['deliver_date'], goods.type)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 433, in get_text
+    ftext = ftext_data[t]
+IndexError: tuple index out of range
+
+[2018-08-22 11:18:09,665]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 413, in _get
+    ftext, stext, after = self.get_text(order, d['deliver_date'], goods.type)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 434, in get_text
+    ftext = ftext_data[t]
+IndexError: tuple index out of range
+
+[2018-08-22 11:18:59,245]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 413, in _get
+    ftext, stext, after = self.get_text(order, d['deliver_date'], goods.type)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 434, in get_text
+    ftext = ftext_data[t]
+IndexError: tuple index out of range
+
+[2018-08-22 11:19:49,512]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 421, in _get
+    return self.render_html('app/order_list.html',order_list=order_list)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
+    return self.render(template_name, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
+    self.finish(self._render_string(template_name, **kwargs))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 120, in _render_string
+    template = self._lookup.get_template(template_name)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lookup.py", line 258, in get_template
+    return self._load(srcfile, uri)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lookup.py", line 323, in _load
+    **self.template_args)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 338, in __init__
+    module = self._compile_from_file(path, filename)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 416, in _compile_from_file
+    filename)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 705, in _compile_text
+    generate_magic_comment=template.disable_unicode)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 685, in _compile
+    node = lexer.parse()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 241, in parse
+    if self.match_expression():
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 393, in match_expression
+    text, end = self.parse_until_text(True, r'\|', r'}')
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 133, in parse_until_text
+    **self.exception_kwargs)
+SyntaxException: Expected: \|,} in file '/Users/shuai.chen/eclipse-workspace/app-breeding/templates/app/order_list.html' at line: 56 char: 13
+
+[2018-08-22 11:21:29,514]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 421, in _get
+    return self.render_html('app/order_list.html',order_list=order_list)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
+    return self.render(template_name, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
+    self.finish(self._render_string(template_name, **kwargs))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 120, in _render_string
+    template = self._lookup.get_template(template_name)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lookup.py", line 258, in get_template
+    return self._load(srcfile, uri)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lookup.py", line 323, in _load
+    **self.template_args)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 338, in __init__
+    module = self._compile_from_file(path, filename)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 416, in _compile_from_file
+    filename)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 705, in _compile_text
+    generate_magic_comment=template.disable_unicode)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 685, in _compile
+    node = lexer.parse()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 241, in parse
+    if self.match_expression():
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 402, in match_expression
+    lineno=line, pos=pos)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 140, in append_node
+    node = nodecls(*args, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/parsetree.py", line 194, in __init__
+    self.code = ast.PythonCode(text, **self.exception_kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/ast.py", line 40, in __init__
+    expr = pyparser.parse(code.lstrip(), "exec", **exception_kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/pyparser.py", line 48, in parse
+    ), **exception_kwargs)
+SyntaxException: (SyntaxError) EOL while scanning string literal (<unknown>, line 1) (u"ele[stext']} &nbsp;&nbsp;&nbsp;\n\t\t\t\t\t             ") in file '/Users/shuai.chen/eclipse-workspace/app-breeding/templates/app/order_list.html' at line: 39 char: 46
+
+[2018-08-22 11:23:26,477]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 421, in _get
+    return self.render_html('app/order_list.html',order_list=order_list)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
+    return self.render(template_name, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
+    self.finish(self._render_string(template_name, **kwargs))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 120, in _render_string
+    template = self._lookup.get_template(template_name)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lookup.py", line 258, in get_template
+    return self._load(srcfile, uri)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lookup.py", line 323, in _load
+    **self.template_args)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 338, in __init__
+    module = self._compile_from_file(path, filename)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 416, in _compile_from_file
+    filename)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 705, in _compile_text
+    generate_magic_comment=template.disable_unicode)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 685, in _compile
+    node = lexer.parse()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 241, in parse
+    if self.match_expression():
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 402, in match_expression
+    lineno=line, pos=pos)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/lexer.py", line 140, in append_node
+    node = nodecls(*args, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/parsetree.py", line 194, in __init__
+    self.code = ast.PythonCode(text, **self.exception_kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/ast.py", line 40, in __init__
+    expr = pyparser.parse(code.lstrip(), "exec", **exception_kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/pyparser.py", line 48, in parse
+    ), **exception_kwargs)
+SyntaxException: (SyntaxError) invalid syntax (<unknown>, line 1) (u'ele[stext\']} &nbsp;&nbsp;&nbsp;<span class="brief"') in file '/Users/shuai.chen/eclipse-workspace/app-breeding/templates/app/order_list.html' at line: 39 char: 46
+
+[2018-08-22 11:44:59,270]-result.py:57-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 256, in _get
+    address_id = int(self.get_argument('address_id', self.user.deliver_address_id))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'deliver_address_id'
+
+[2018-08-22 11:45:05,886]-result.py:57-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 256, in _get
+    address_id = int(self.get_argument('address_id', self.user.deliver_address_id))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'deliver_address_id'
+
+[2018-08-22 14:00:19,024]-result.py:34-ERROR - GoodsDetailHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 54, in _get
+    goods = GoodsService(GoodsInfo).get(id=int(goods_id))
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 23, in __deco
+    obj = self.cache.get_obj(key)
+AttributeError: 'GoodsService' object has no attribute 'cache'
+
+[2018-08-22 14:00:27,839]-result.py:34-ERROR - GoodsDetailHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 54, in _get
+    goods = GoodsService(GoodsInfo).get(id=int(goods_id))
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 23, in __deco
+    obj = self.cache.get_obj(key)
+AttributeError: 'GoodsService' object has no attribute 'cache'
+
+[2018-08-22 14:07:50,881]-result.py:34-ERROR - AddGoodsIconHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 162, in _post
+    avatar, icon, big, pics = self.get_goods_pics(goods.avatar_id, goods.id)
+AttributeError: 'NoneType' object has no attribute 'avatar_id'
+
+[2018-08-22 14:12:47,786]-result.py:34-ERROR - AddGoodsHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 90, in _get
+    goods = service.get(code=int(goods_id))
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 20, in __deco
+    key = prefix % kwargs if len(kwargs) > 0 else prefix
+KeyError: 'id'
+
+[2018-08-22 14:13:56,051]-result.py:34-ERROR - AddGoodsIconHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 148, in _get
+    _, icon, big, pics = self.get_goods_pics(goods.avatar_id, goods.id)
+AttributeError: 'NoneType' object has no attribute 'avatar_id'
+
+[2018-08-22 14:16:43,545]-result.py:34-ERROR - AddGoodsIconHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 149, in _get
+    _, icon, big, pics = self.get_goods_pics(goods.avatar_id, goods.id)
+AttributeError: 'NoneType' object has no attribute 'avatar_id'
+
+[2018-08-22 14:41:56,260]-result.py:34-ERROR - AddGoodsHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 131, in _post
+    service.update(info,**{'id':goods.id})
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 44, in __deco
+    kl.extends(prefixs[1:])
+AttributeError: 'list' object has no attribute 'extends'
+
+[2018-08-22 16:56:24,692]-result.py:34-ERROR - DeliverHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/deliver.py", line 109, in _get
+    address = UserDeliverAddressService(UserDeliverAddress).get(id=ug.deliver_address_id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 20, in __deco
+    key = prefix % kwargs
+KeyError: 'status'
+
+[2018-08-22 16:57:54,035]-result.py:34-ERROR - DeliverHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/deliver.py", line 110, in _get
+    info['name'] = address.name
+AttributeError: 'NoneType' object has no attribute 'name'
+
+[2018-08-22 17:01:16,522]-result.py:34-ERROR - DeliveredListHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/deliver.py", line 194, in _post
+    address = address_service.get(id=item.deliver_address_id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 20, in __deco
+    key = prefix % kwargs
+KeyError: 'status'
+
+[2018-08-22 17:01:18,505]-result.py:34-ERROR - DeliveredListHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/deliver.py", line 194, in _post
+    address = address_service.get(id=item.deliver_address_id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 20, in __deco
+    key = prefix % kwargs
+KeyError: 'status'
+
+[2018-08-22 17:01:20,432]-result.py:34-ERROR - DeliveredListHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/deliver.py", line 194, in _post
+    address = address_service.get(id=item.deliver_address_id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 20, in __deco
+    key = prefix % kwargs
+KeyError: 'status'
+
+[2018-08-22 17:01:22,010]-result.py:34-ERROR - DeliveredListHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/deliver.py", line 194, in _post
+    address = address_service.get(id=item.deliver_address_id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/cache.py", line 20, in __deco
+    key = prefix % kwargs
+KeyError: 'status'
+
+[2018-08-22 17:05:17,932]-result.py:57-ERROR - PersonalInfo error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 140, in _get
+    info['nickname'] = user.nickname
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'nickname'
+
+[2018-08-22 17:05:34,256]-result.py:57-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 256, in _get
+    address_id = int(self.get_argument('address_id', self.user.deliver_address_id))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'deliver_address_id'
+
+[2018-08-22 17:22:19,932]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 421, in _get
+    order_list = sorted(order_list, key=lambda x:x['create_date'])
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 421, in <lambda>
+    order_list = sorted(order_list, key=lambda x:x['create_date'])
+KeyError: 'create_date'
+

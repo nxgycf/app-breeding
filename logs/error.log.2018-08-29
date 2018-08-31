@@ -1,0 +1,48 @@
+[2018-08-29 10:49:23,256]-result.py:34-ERROR - AddGoodsHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 117, in _post
+    info = {'code':int(code),'name':name,'price':float(price),'feed_day':int(feed_day),'id':int(goods_id),
+ValueError: invalid literal for int() with base 10: ''
+
+[2018-08-29 11:16:43,241]-result.py:34-ERROR - AddGoodsHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 132, in _post
+    service.update(info,**{'id':goods.id})
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/cache.py", line 68, in __deco
+    return func(self, *args, **kwargs)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/goods.py", line 34, in update
+    return super(GoodsService, self).update(attrs, **condition)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 23, in _deco
+    return func(self, *args, **kwargs)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 69, in update
+    self.session.query(self.model).filter_by(**condition).update(attrs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 3176, in update
+    update_op.exec_()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 1126, in exec_
+    self._do_pre_synchronize()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 1191, in _do_pre_synchronize
+    self._additional_evaluators(evaluator_compiler)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 1328, in _additional_evaluators
+    key = self._resolve_key_to_attrname(key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 1247, in _resolve_key_to_attrname
+    attr = _entity_descriptor(self.mapper, key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/base.py", line 383, in _entity_descriptor
+    (description, key)
+InvalidRequestError: Entity '<class 'app.models.goods.GoodsInfo'>' has no property 'types'
+
+[2018-08-29 12:23:02,614]-result.py:34-ERROR - DeliverHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/deliver.py", line 135, in _get
+    info['deliver_date'] = info['deliver_date'].split()[0]
+AttributeError: 'datetime.datetime' object has no attribute 'split'
+
+[2018-08-29 15:03:27,262]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 123, in _post
+    goods = GoodsService(GoodsInfo).get(id=int(gid))
+ValueError: invalid literal for int() with base 10: 'wqwq'
+

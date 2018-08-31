@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+<title>breeding</title>  
+  
+<script type="text/javascript">
+  	  function next(cp, last_page) {  
+  	     if(cp<last_page){
+	  		 var np = parseInt(cp) + 1;
+	         window.location.href='/admin/delivered_list?goods_id=${goods_id}&startdate=${startdate}&enddate=${enddate}&p='+np;
+         }
+      }
+  	  
+  	  function pre(cp) {  
+  	     if(cp>1){
+	  		 var pp = parseInt(cp) - 1;
+	  		 window.location.href='/admin/delivered_list?goods_id=${goods_id}&startdate=${startdate}&enddate=${enddate}&p='+pp;
+         }
+      }
+            
+      function toPage(p){
+  	     if(p>=1 && p <= pages){
+	  		 var pp = parseInt(p)
+	  		 window.location.href='/admin/delivered_list?goods_id=${goods_id}&startdate=${startdate}&enddate=${enddate}&p='+pp;
+         }
+      }
+</script>
+</head> 
+   
+<body>  
+<H3>已发货列表</H3> 
+    <div style="padding: 2px; border: 0px solid #ddd;">
+		<form class="pop-response" action="/admin/delivered_list" method="post">
+			商品id:
+			<input type="text" name="goods_id" value="${goods_id}" required="required" size="10"/>	
+			&emsp;&emsp;			
+			start_date:
+			<input type="text" name="startdate" value="${startdate}" required="required" size="15"/>
+			&emsp;&emsp;
+			end_date:
+			<input type="text" name="enddate" value="${enddate}" required="required" size="15"/>	
+			&emsp;&emsp;
+			<button type="submit">选择</button>
+		</form>	
+		</br>			    
+		<table id="stat" border="1" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td width="110" align="center" style="font-weight:bold">
+						订单ID
+					</td>					
+					<td width="110" align="center" style="font-weight:bold">
+						用户ID
+					</td>	
+					<td width="80" align="center" style="font-weight:bold">
+						商品ID
+					</td>										
+					<td width="110" align="center" style="font-weight:bold">
+						商品名称
+					</td>						
+					<td width="80" align="center" style="font-weight:bold">
+						数量
+					</td>	
+					<td width="110" align="center" style="font-weight:bold">
+					    发货日期
+					</td>	
+					<td width="120" align="center" style="font-weight:bold">
+						收货人称呼
+					</td>	
+					<td width="120" align="center" style="font-weight:bold">
+						收货人电话
+					</td>	
+					<td width="330" align="center" style="font-weight:bold">
+						收货人地址
+					</td>	
+					<td width="110" align="center" style="font-weight:bold">
+						快递名称
+					</td>	
+					<td width="150" align="center" style="font-weight:bold">
+						快递单号
+					</td>
+					<td width="100" align="center" style="font-weight:bold">
+						快递状态
+					</td>																			
+				</tr>
+
+				% for vector in li:
+					<tr>
+						<td width="110" align="center">
+							${vector.order_id}
+						</td>						
+						<td width="110" align="center">
+							${vector.user_id}
+						</td>	
+						<td width="80" align="center">
+							${vector.goods_id}
+						</td>											
+						<td width="110" align="center">
+							${vector.goods_name}
+						</td>
+						<td width="80" align="center">
+							${vector.number}
+						</td>							
+						<td width="110" align="center">
+							${vector.deliver_date}
+						</td>	
+						<td width="120" align="center">
+							${vector.name}
+						</td>
+						<td width="120" align="center">
+							${vector.phone}
+						</td>						
+						<td width="330" align="center">
+							${vector.address}
+						</td>								
+						<td width="110" align="center">
+							 ${vector.express_name}
+						</td>
+						<td width="150" align="center">
+							 ${vector.express_no}
+						</td>	
+						<td width="100" align="center">
+							 ${vector.express_status}
+						</td>																																						
+					</tr>
+                 % endfor
+                                      
+			</tbody>
+		</table>
+		<div align="center" style="padding-top: 8px; border: 0px solid #ddd;">
+		    <a href="javascript:void(null);" onclick="pre(${cp})">上一页</a>
+		    &nbsp
+		    % for p in pages:
+		        % if p == cp:
+		            ${p}
+		        % else:
+		           <a href="/admin/delivered_list?goods_id=${goods_id}&startdate=${startdate}&enddate=${enddate}&p=${p}">${p}</a>
+		        % endif
+		    % endfor
+		    &nbsp
+		    <a href="javascript:void(null);" onclick="next(${cp},${pages[-1]})">下一页</a> 
+		</div> 		
+    </div>                
+</body>
+
+</html>

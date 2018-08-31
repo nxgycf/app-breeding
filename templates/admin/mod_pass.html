@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>  
+  <title>breeding</title>  
+  </head>  
+  
+  <body>  
+    <h3>密码修改：</h3>
+    <div style="padding: 2px; border: 0px; solid #ddd;">
+			<h3>
+				<span  style="font-size:medium">hello, </span >
+				<span style="font-size:large;color:blue">${name}</span>
+			</h3>
+			<form class="pop-response" action="/admin/mod_pass" method="post">
+				请输入原密码&emsp;
+				<input type="password" name="password" required="required" size="20"/>
+				<br />			
+				请输入新密码&emsp;
+				<input type="password" name="password1" required="required" size="20"/>
+				<br />
+				再次输入密码&emsp;
+				<input type="password" name="password2" required="required" size="20"/>
+				<br />
+				<button type="submit" onclick="return confirm('你确定要修改吗?')">
+					提交
+				</button>
+			</form>
+		</div>    
+		   
+     % if filemsg:
+       <p id="alert" style="color:red">${filemsg}</p>   
+     % endif 
+     	   
+  </body>
+</html>

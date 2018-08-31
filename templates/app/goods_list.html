@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	<style>
+	</style>
+	
+    <script src="../../static/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+    
+	    var t = n = 0, count;
+	    $(document).ready(function() {
+            // 获取图片标签长度
+            count = $("#banner_list a").length;
+            // 不是当前显示的图片隐藏
+            $("#banner_list a:not(:first-child)").hide();
+            // 点击下面的1234按钮，切换图片
+            $("#banner li").click(function() {
+                var i = $(this).text() - 1;
+                n = i;
+                if (i >= count) return;
+                // 淡入淡出效果
+                //$("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(500);
+                $("#banner_list a").filter(":visible").hide().parent().children().eq(i).show();
+                //$("#banner_list a").filter(":visible").slideUp(500).parent().children().eq(i).slideDown(500);
+
+                // 响应点击
+                $(this).toggleClass("on");
+
+                // 切换按钮的时候让上一个按钮回归原来的样式
+                $(this).siblings().removeAttr("class");
+            });
+            t = setInterval("showAuto()", 3000);
+            $("#banner").hover(function() {
+                    clearInterval(t)
+                },
+                function() {
+                    t = setInterval("showAuto()", 3000);
+            });
+            
+		    //点击事件
+		    $("div .goods_tab").click(function () {
+		        // 取消当前激活状态         
+		        $(".tab_active").removeClass("tab_active");
+		
+		        // 添加新状态
+		        $(this).addClass("tab_active");
+		                    
+		        //content根据点击按钮加载不同的html
+		        var page = $(this).attr("data-src");
+		        var value = $(this).attr("value");
+		        if(page){
+					$.ajax({
+						url: '/goods/list',
+						dataType : "text",
+						type: 'POST',
+						data:{
+						    gtype:value,
+						},
+						success: function(data){
+							if(typeof data == "string"){
+								data = $.parseJSON(data);
+							}
+							if(data.code == 0){					
+							    $("#g-list").empty();
+								var goods_list = data.data;
+								for(var j = 0,len = goods_list.length; j < len; j++){
+								    $("#g-list").append(setGoodsListDiv(goods_list[j]));
+								}
+							}else{
+								
+							}				    	
+						},
+						error: function(){
+		
+						}
+					});
+		        }
+		    });
+		
+		    // 自动点击第一个菜单
+		    $("div .goods_tab")[0].click();            
+	    });
+	    
+        // 自动轮播
+	    function showAuto() {
+	        n = n >= (count - 1) ? 0 : ++n;
+	        $("#banner li").eq(n).trigger('click');
+	    }
+	    
+	   function setGoodsListDiv(item){
+	        var div = '<div class="goods-list">'
+			      + '<a href=' + '"' + '/goods/detail?goods_id=' +item.id +'"' + '>'
+				  +	'<div class="goods-item">'		        
+				  + '<li>'
+			      + '<img class="tp" src=' + '"' + item.avatar +'"' + 'alt="商品图片">'
+			      + '<div class="ti">'
+				  + '<p class="name">' + item.name + '</p><br/>'
+				  + '<p class="brief">' + item.brief + '</p><br/>'
+				  + '<p class="discount">' + item.dis_desc + '</p><br/>';
+				  
+				  if(item.last_price < item.price){
+				      div += '<p class="price">' + '￥' + item.last_price_string + '&nbsp<span class="nprice">' +'￥' + item.price_string + '</span></p>';            
+				  }else{
+				      div += '<p class="price">' + '￥' + item.price_string + '</p>';
+				  }
+				  
+				  div += '</div></li></div></a></div>';
+	        return div;
+	    }	
+	        
+    </script>
+</head>
+<body>
+    <header id="title" class="text-center">农场精品</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>   
+	        
+	<div id="banner">
+        <div id="banner_bg">
+        </div>
+        <div id="banner_info">
+        </div>
+        <ul id="index_list">
+           % for i in xrange(len(pics)):
+               % if i==0:
+                <li class="on">
+                    ${i+1}
+                </li>
+               % else:
+                <li>
+                    ${i+1}
+                </li>
+              % endif
+           % endfor
+        </ul>
+        <div id="banner_list">
+            % for pic, gid in pics:
+                % if gid != 0:
+                        <a href="/goods/detail?goods_id=${gid}" ><img src="${pic}" ></a>
+                    % else:
+                        <a href="javascript:void(0);" ><img src="${pic}" ></a>
+                    % endif
+            % endfor
+        </div>
+    </div>
+
+	<div id="m_tab" class="m_tab">
+	    <div id="one" class="goods_tab text-center" data-src="/goods/list" value="0" >
+	        <div class="tab_name ">全部</div>
+	    </div>
+	    <div id="two" class="goods_tab text-center" data-src="/goods/list"  value="1">
+	        <div class="tab_name ">养殖</div>
+	    </div>
+	    <div id="three" class="goods_tab text-center" data-src="/goods/list" value="2">
+	        <div class="tab_name ">果蔬</div>
+	    </div>
+	    <div id="four" class="goods_tab text-center" data-src="/goods/list" value="3">
+	        <div class="tab_name ">谷物</div>
+	    </div>
+	</div>
+	
+    <div class="farm">            
+	    <ul id="g-list">
+
+	   </ul>          
+	</div>   					    
+	
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	
+</body>
+</html>	

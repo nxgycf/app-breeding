@@ -1,0 +1,48 @@
+<html>
+
+  <head>
+  
+  </head>
+  
+  <body style="background:#F0FFF0">
+    <div id="center" align="center" style="margin-top:20%">
+    <H2>塞上农场管理后台</H2>
+    
+     <form method="post" action="/admin/login">   
+     <table>  
+     <tr>      
+       <td>用户名:</td>     
+       <td><input type="text" name="account" value="${account}" size="25"/></td>      
+     </tr>   
+     <tr>    
+       <td>密码:</td>      
+       <td><input type="password" name="password" size="25"/></td>    
+     </tr> 
+ 
+<!--     
+     {% if msg %}
+     <tr>  
+       <td></td> 
+       <td id="alert" style="color:red">{{msg}}</td>   
+     </tr>  
+     {% end %}  
+-->
+
+    % if msg:
+     <tr>  
+       <td></td> 
+       <td id="alert" style="color:red">${msg}</td>   
+     </tr>  
+    % endif 
+                 
+     <tr>  
+       <td>  </td>   
+       <td ><input type="submit" name="submit" value=" 登 录 " style="font-weight:bold" size="10"/></td>  
+     </tr>  
+     </table>    
+     </form>  
+    </div>  
+    
+  </body>  
+    
+</html>

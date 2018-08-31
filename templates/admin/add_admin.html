@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>  
+  <title>breeding</title>  
+  </head>  
+  
+  <body>  
+	<h3>
+		添加管理员：
+	</h3>  
+  
+  <div style="padding: 2px; border: 0px; solid #ddd;">
+			<form class="pop-response" action="/admin/add_admin" method="post">
+				账户&emsp;
+				<input type="text" name="account" value="${account}" required="required" size="25"/>
+				<br />
+				姓名&emsp;
+				<input type="text" name="name" value="${name}" required="required" size="20"/>		
+				<br />		
+				级别&emsp;
+				<input type="text" name="level" value="${level}" required="required" size="20"/>
+				<br />					
+				账户密码&emsp;
+				<input type="password" name="password1" value="${password1}" required="required" size="20"/>
+				<br />
+				密码确认&emsp;
+				<input type="password" name="password2" value="${password2}" required="required" size="20"/>
+				<br />							
+				<button type="submit">
+					提交
+				</button>
+			</form>
+
+		</div>  
+		
+    % if msg:
+       <p id="alert" style="color:red">${msg}</p>   
+    % endif
+		                   
+  </body>
+</html>

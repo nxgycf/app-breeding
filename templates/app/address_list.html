@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	<script type="text/javascript">
+	    
+	</script>
+</head>
+<body>
+    <header id="title" class="text-center">个人信息</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>
+	<div class="stitle">
+		<div class="st">地址列表</div> 
+		<a href="/app?index=2"><img src="../../static/image/index.png"/></a>
+	</div>
+    
+    <div class="farm">
+        % if default:
+            <a href="/user/edit_address?address_id=${default['id']}">
+		    	 	<div class="text">	       
+			        <p><span class="name">${default['name']}</span>  &nbsp;&nbsp;&nbsp;  ${default['phone']}</p>
+			        <p><span class="dea">默认</span>&nbsp;${default['address']}</p>
+			    </div>
+		    </a>
+	    % endif
+        % for item in li:
+          <a href="/user/edit_address?address_id=${item['id']}">
+	    	 	  <div class="text">	       
+		        <p><span class="name">${item['name']}</span>  &nbsp;&nbsp;&nbsp;  ${item['phone']}</p>
+		        <p>${item['address']}</p>
+		      </div>
+	      </a>
+	    % endfor  
+	</div>    
+
+	<div class="confirm_menu">
+	    <form action="/user/edit_address" method="get"> 
+	        <input id="action" type="hidden" name="action" value="1" >
+	        <button type="submit">添加新地址</button>  
+	    </form>
+	</div> 
+	
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	
+</body>
+</html>	

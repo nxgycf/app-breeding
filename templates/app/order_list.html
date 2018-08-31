@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	
+	<script src="../../static/js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	
+	    function setOrderListDiv(item){
+	        var div = '<div class="goods-list">'
+			      + '<a href=' + '"' + '/user/order_detail?order_id=' +item.order_id +'"' + '>'
+				  +	'<div class="order-item">'		        
+				  + '<li>'
+			      + '<img class="tp" src=' + '"' + item.avatar +'"' + 'alt="商品图片">'
+			      + '<div class="to">'
+				  + '<p class="name">' + item.goods_name + '&nbsp<span class="num">' +'&nbsp;X' + item.number +'</span></p><br/>'
+				  + '<p class="brief">' + item.ftext + '</p><br/>';
+				  
+				  if(item.status == 1){
+				      div += '<p class="breeding">' + item.stext + '&nbsp;&nbsp;&nbsp;<span class="brief">' + item.after +'</span></p>';              
+				  }else{
+				      div += '<p class="delivered">' + item.stext + '&nbsp;&nbsp;&nbsp;<span class="brief">' + item.after +'</span></p>';
+				  }
+				  
+				  div += '</div></li></div></a></div>';
+	        return div;
+	    }
+	    
+	    $(document).ready(function() {
+		    //点击事件
+		    $("div .order_tab").click(function () {
+		        // 取消当前激活状态         
+		        $(".tab_active").removeClass("tab_active");
+		
+		        // 添加新状态
+		        $(this).addClass("tab_active");
+		                    
+		        //content根据点击按钮加载不同的html
+		        var page = $(this).attr("data-src");
+		        var value = $(this).attr("value");
+		        if(page){
+					$.ajax({
+						url: '/user/order_list',
+						dataType : "text",
+						type: 'POST',
+						data:{
+						    status:value,
+						},
+						success: function(data){
+							if(typeof data == "string"){
+								data = $.parseJSON(data);
+							}
+							if(data.code == 0){
+							    $("#order-list").empty();
+							    
+								var order_list = data.data;
+								for(var j = 0,len = order_list.length; j < len; j++){
+								    $("#order-list").append(setOrderListDiv(order_list[j]));
+								}
+							}else{
+								
+							}				    	
+						},
+						error: function(){
+		
+						}
+					});
+		        }
+		    });
+		
+		    // 自动点击第一个菜单
+		    $("div .order_tab")[0].click();
+	    });
+	    
+	</script>
+</head>
+<body>
+    <header id="title" class="text-center">我的订单</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>
+    
+    <!--
+	<div class="stitle">
+		<div class="st">订单列表</div> 
+		<a href="/app"><img src="../../static/image/index.png"/></a>
+	</div> 
+	-->
+
+	<div id="m_tab" class="m_tab">
+	    <div id="one" class="order_tab text-center" data-src="/user/order_list" value="0" >
+	        <div class="tab_name ">全部</div>
+	    </div>
+	    <div id="two" class="order_tab text-center" data-src="/user/order_list"  value="1">
+	        <div class="tab_name ">待发货</div>
+	    </div>
+	    <div id="three" class="order_tab text-center" data-src="/user/order_list" value="2">
+	        <div class="tab_name ">已发货</div>
+	    </div>
+	</div>
+  	
+    <div class="farm">
+	    <ul id="order-list">
+
+	   </ul>          
+	</div>   					    
+	
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	     
+</body>
+</html>	

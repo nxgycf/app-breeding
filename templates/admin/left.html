@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <title>
+        breeding
+    </title>
+
+    <script type="text/javascript">
+      function loadli(para) {     
+          var ul=document.getElementById("list");
+          
+          //GM工具在这里添加
+          var list1 = [
+              '项目工具',  
+              '<a target="main" href="/admin/main" >summary</a>', 
+              '<a target="main" href="/admin/look_user" >用户查询</a>', 
+              '<a target="main" href="/admin/goods_list" >商品列表</a>',
+              '<a target="main" href="/admin/add_goods" >添加商品</a>',
+              '<a target="main" href="/admin/deliver_list?sign=0" >订购列表</a>',
+              '<a target="main" href="/admin/deliver" >订单查询</a>',
+              '<a target="main" href="/admin/deliver_list?sign=1" >待发货列表</a>',
+              '<a target="main" href="/admin/delivered_list" >已发货列表</a>',
+              '<a target="main" href="/admin/ad_pics" >广告图片</a>',
+              '<a target="main" href="/admin/open_region" >地区限制</a>',
+              '<a target="main" href="/admin/discount" >活动配置</a>',
+          ];
+          
+          list1.push('管理员工具');
+          list1.push('<a target="main" href="/admin/mod_pass" >修改密码</a>');
+          
+          var list = [];
+          
+          if(para >= 3){
+              var list2 = [ 
+	              '<a target="main" href="/admin/look_admins" >查看管理员</a>',   
+	              '<a target="main" href="/admin/add_admin" >添加管理员</a>',                       
+	          ];
+	          list = list1.concat(list2);
+          }else if(para >= 2){ 
+              var list2 = [ 
+         	      '<a target="main" href="/admin/look_admins" >查看管理员</a>',                         
+         	  ];
+         	  list = list1.concat(list2);    
+	      }else{
+	          list = list1;
+	      }
+	      
+	      list.push(' ');
+	      list.push('<a target="_parent" href="/admin/logout" >退出</a>');
+          
+          for(var i=0;i<list.length;i++){
+	          var obj=document.createElement("li");   
+	          if(list[i].substring(0,1) == "<"){
+	              obj.setAttribute("style","list-style-type:none");
+	          }else{
+	              obj.setAttribute("style","list-style-type:square");
+	          }           
+	          obj.innerHTML=list[i];                   
+	          ul.appendChild(obj);        
+	      }           
+      } 
+    </script>
+    </head>
+    
+   <body onload="loadli(${para})" >
+       <div align="center">
+       	   <H3>塞上农场</H3>
+       </div>
+
+       <div>
+           <ul id="list">
+
+           </ul>
+       </div>
+   </body>
+   
+</html>

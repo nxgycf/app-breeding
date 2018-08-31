@@ -1,0 +1,179 @@
+[2018-08-17 09:24:50,713]-result.py:57-ERROR - PersonalInfo error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 128, in _get
+    info['nickname'] = user.nickname
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'nickname'
+
+[2018-08-17 11:19:55,037]-result.py:34-ERROR - DiscountHnadler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 164, in _get
+    info_1 = self.cache.hgetall(keys.DISCOUNT.format(1))
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 1861, in hgetall
+    return self.execute_command('HGETALL', name)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 578, in execute_command
+    connection.send_command(*args)
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 563, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 538, in send_packed_command
+    self.connect()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 442, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 192.168.1.165:19000. Connection refused.
+
+[2018-08-17 11:21:15,401]-result.py:34-ERROR - DiscountHnadler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 168, in _get
+    v['type'] = 1
+TypeError: 'str' object does not support item assignment
+
+[2018-08-17 11:23:45,664]-result.py:34-ERROR - DiscountHnadler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 169, in _get
+    value = json.loads(v)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/decoder.py", line 380, in raw_decode
+    obj, end = self.scan_once(s, idx)
+ValueError: Expecting property name: line 1 column 2 (char 1)
+
+[2018-08-17 11:24:34,864]-result.py:34-ERROR - DiscountHnadler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 170, in _get
+    value = json.loads(v)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/decoder.py", line 380, in raw_decode
+    obj, end = self.scan_once(s, idx)
+ValueError: Expecting property name: line 1 column 2 (char 1)
+
+[2018-08-17 11:26:50,867]-result.py:34-ERROR - DiscountHnadler error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 181, in _get
+    return self.render_html('admin/discount.html',infos=info.items(),msg="")
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
+    return self.render(template_name, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
+    self.finish(self._render_string(template_name, **kwargs))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 121, in _render_string
+    return template.render_unicode(**kwargs).encode('utf-8','replace')
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 471, in render_unicode
+    as_unicode=True)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 838, in _render
+    **_kwargs_for_callable(callable_, data))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 873, in _render_context
+    _exec_template(inherit, lclcontext, args=args, kwargs=kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 899, in _exec_template
+    callable_(context, *args, **kwargs)
+  File "admin_discount_html", line 45, in render_body
+KeyError: 'num'
+
+[2018-08-17 12:06:02,896]-result.py:57-ERROR - PersonalInfo error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 128, in _get
+    info['nickname'] = user.nickname
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'nickname'
+
+[2018-08-17 14:40:13,467]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 101, in _get
+    dis = self.get_discount(goods.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 132, in get_discount
+    d = json(self.d1[gid])
+TypeError: 'module' object is not callable
+
+[2018-08-17 14:41:36,062]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 101, in _get
+    dis = self.get_discount(goods.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 133, in get_discount
+    d = json(self.d1[gid])
+TypeError: 'module' object is not callable
+
+[2018-08-17 14:42:12,081]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 101, in _get
+    dis = self.get_discount(goods.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 133, in get_discount
+    d = json(self.d1[gid])
+TypeError: 'module' object is not callable
+
+[2018-08-17 14:42:59,634]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 101, in _get
+    dis = self.get_discount(goods.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 133, in get_discount
+    d = json(self.d1[gid])
+TypeError: 'module' object is not callable
+
+[2018-08-17 14:43:45,843]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 101, in _get
+    dis = self.get_discount(goods.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 133, in get_discount
+    d = json(self.d1[gid])
+TypeError: 'module' object is not callable
+
+[2018-08-17 14:46:29,089]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 103, in _get
+    d['dis_num_amount'] = 1 if 'amount' in dis else 0
+KeyError: 'dis_price'
+
+[2018-08-17 14:49:04,760]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 102, in _get
+    d['dis_price'] = goods.price * d['discount'] if 'discount' in dis else 0
+KeyError: 'discount'
+
+[2018-08-17 14:52:14,936]-result.py:57-ERROR - GoodsList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 101, in _get
+    dis = self.get_discount(goods.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 144, in get_discount
+    info['num'] = int(d['num'])
+KeyError: 'num'
+
+[2018-08-17 14:56:27,935]-result.py:57-ERROR - GoodsDetail error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 197, in _get
+    d['dis_price'] = goods.price * d['dis_price'] if 'discount' in dis else 0
+KeyError: 'dis_price'
+
+[2018-08-17 15:46:10,730]-result.py:57-ERROR - OrderDetail error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 397, in _get
+    order_id = int(self.get_argument('order_id', 0))
+ValueError: invalid literal for int() with base 10: '8/favicon.ico'
+
+[2018-08-17 16:59:49,044]-result.py:57-ERROR - OrderDetail error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 54, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 398, in _get
+    order_id = int(self.get_argument('order_id', 0))
+ValueError: invalid literal for int() with base 10: '9/favicon.ico'
+

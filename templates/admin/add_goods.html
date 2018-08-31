@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+</head>  
+  
+<body>  
+  <h3>
+	  % if sign == "1":
+	  修改商品：
+	  % else:
+	  添加商品：
+	  % endif
+  </h3>  
+    % if msg:
+       <p id="alert" style="color:red">${msg}</p>   
+    % endif
+  <form action="/admin/add_goods" method="post" >
+		<p>code(商品编号)&emsp;&emsp;&emsp;
+			% if sign == "1":
+			${code}
+			<input type="hidden" name="code" value="${code}"/>
+			<input type="hidden" name="goods_id" value="${id}"/>
+			% else:
+			<input type="text" name="code" value="${code}" required="required" size="20"/>
+			% endif
+		<p />
+		<p>name(商品名称)&emsp;&emsp;&emsp;
+		<input type="text" name="name" value="${name}" required="required" size="25"/>		
+		<p />		
+		<p>price(商品价格)&emsp;&emsp;&emsp;
+		<input type="text" name="price" value="${price}" required="required" size="20"/>&emsp;元
+		<p />					
+		<p>feed_day(喂养时长)&emsp;
+		<input type="text" name="feed_day" value="${feed_day}" required="required" size="20"/>&emsp;天
+		<p />
+		<p>number(剩余数量)&emsp;&emsp;
+		<input type="text" name="number" value="${number}" required="required" size="20"/>	
+		<p />
+		<p>type(商品类型)&emsp;&emsp;
+		<select name="type">
+		  % for type_code,type_name in types:
+		      % if type == type_code:
+		      <option value ="${type_code}" selected="selected">${type_name}</option>
+		      % else:
+		      <option value ="${type_code}" >${type_name}</option>
+		      % endif
+		  % endfor    
+		</select>
+		<p />
+		<p>status(商品状态)&emsp;&emsp;
+		% if status == 1:
+			<input type="radio" value="0" name="status">正常</input>
+	        <input type="radio" value="1" name="status" checked="true">下架</input>
+        % else:
+			<input type="radio" value="0" name="status" checked="true">正常</input>
+	        <input type="radio" value="1" name="status">下架</input>
+        % endif
+		<p />
+		<p>brief(简介  建议不超过20字左右)&emsp;
+		<br />
+		<textarea id="brief" name="brief" cols="50" rows="5">${brief}</textarea>				
+		<p />		
+		<p>detail(详细描述  建议不超过50字左右)&emsp;
+		<br />
+		<textarea id="detail" name="detail" cols="50" rows="10">${detail}</textarea>				
+		<p />
+		<input type="hidden" name="sign" value="${sign}"/>
+		<input id="submit" type="submit" value="提交" />   									
+  </form>
+		                   
+</body>
+</html>

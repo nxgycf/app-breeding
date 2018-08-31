@@ -1,0 +1,9 @@
+futures
+tornado
+requests
+redis
+mysql-python
+sqlalchemy
+cython
+
+

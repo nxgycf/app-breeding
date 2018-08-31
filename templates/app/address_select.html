@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	<style type="text/css">
+	            .sa{
+	                border:1px solid #e7e7e7;
+	                margin-bottom:5px;
+	            }
+	
+	            input{
+	                display: none;
+	            }
+	
+	            label{
+	                width: 100%;
+	                display: inline-block;
+	                position: relative;
+	                color: #999;
+	            }
+	            label:active{
+	                background: #EEEEEE;
+	            }
+	            label:after{
+	                content: "";/*必须设置*/
+	                display: inline-block;
+	                width: 15px;
+	                height: 15px;
+	                border: 1px solid green;
+	                position: absolute;
+	                top: 45%;
+	                left: 5px;
+	                border-radius: 15px;
+	            }
+	
+	            input:checked+label:after{
+	                background-color: green;
+	            }
+	            
+	            .atext{position: relative;left: 30px;}
+	            .atext p{font-size:11px;color:#7B7B7B;margin-top:0.5em;margin-bottom:0.5em;}
+	            .atext .name{font-size:13px;font-weight:bold;color:#000;}
+	</style>
+	<script type="text/javascript">
+		function select_addr(address_id){
+		    var goods_id = document.getElementById("goods_id").value;
+		    var num = document.getElementById("num").value;
+		    var url = '/goods/buy?goods_id='+goods_id+'&num='+num+'&address_id='+address_id;
+		    window.location.href = url;
+		}   	    
+	</script>
+</head>
+<body>
+    <header id="title" class="text-center">地址选择</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>  
+	<div class="stitle">
+		<div class="st">地址选择</div> 
+		<a href="/app"><img src="../../static/image/index.png"/></a>
+	</div>
+    
+    <div class="farm">
+        <input id="goods_id" type="hidden" name="goods_id" value="${goods_id}" >
+        <input id="num" type="hidden" name="num" value="${num}" >
+	        
+        % if default:
+            <a href="javascript:select_addr(${default['id']});">
+		    	 	<div class="text">	       
+			        <p><span class="name">${default['name']}</span>  &nbsp;&nbsp;&nbsp;  ${default['phone']}</p>
+			        <p><span class="dea">默认</span>&nbsp;${default['address']}</p>
+			    </div>
+		    </a>
+	    % endif
+	    
+        % for item in li:
+           <a href="javascript:select_addr(${item['id']});">
+	    	 	   <div class="text">	       
+		            <p><span class="name">${item['name']}</span>  &nbsp;&nbsp;&nbsp;  ${item['phone']}</p>
+		            <p>${item['address']}</p>
+		       </div>
+	       </a>
+	    % endfor  
+	    
+        <!--
+	    <div class="sa">
+	        <input type="radio"  id="radio"  name="address_id" value="${default['id']}" checked="checked"/>
+	        <label for="radio">
+	            <div class="atext">	
+			        <p><span class="name">${default['name']}</span>  &nbsp;&nbsp;&nbsp;  ${default['phone']}</p>
+			        <p>${default['address']}</p>
+		        </div>
+            </label>
+	    </div>
+	    -->
+	    
+    </div>  
+    
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	
+</body>
+</html>	

@@ -1,0 +1,207 @@
+[2018-08-20 09:14:50,324]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 390, in _get
+    return self.render_html('app/order_list.html',order_list=order_list)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
+    return self.render(template_name, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
+    self.finish(self._render_string(template_name, **kwargs))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 121, in _render_string
+    return template.render_unicode(**kwargs).encode('utf-8','replace')
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 471, in render_unicode
+    as_unicode=True)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 838, in _render
+    **_kwargs_for_callable(callable_, data))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 873, in _render_context
+    _exec_template(inherit, lclcontext, args=args, kwargs=kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 899, in _exec_template
+    callable_(context, *args, **kwargs)
+  File "app_order_list_html", line 33, in render_body
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 226, in __str__
+    raise NameError("Undefined")
+NameError: Undefined
+
+[2018-08-20 09:58:29,535]-result.py:57-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 361, in _get
+    orders = user_goods_service.gets(user_id=self.user.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 20, in _deco
+    return func(self, *args, **kwargs)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 86, in gets
+    return self.session.query(self.model).filter_by(**condition).all()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2588, in all
+    return list(self)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2736, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/query.py", line 2751, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 914, in execute
+    return meth(self, multiparams, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1010, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1146, in _execute_context
+    context)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1341, in _handle_dbapi_exception
+    exc_info
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 200, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1139, in _execute_context
+    context)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 450, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (_mysql_exceptions.OperationalError) (1054, "Unknown column 'user_goods.goods_price' in 'field list'") [SQL: u'SELECT user_goods.id AS user_goods_id, user_goods.code AS user_goods_code, user_goods.user_id AS user_goods_user_id, user_goods.goods_id AS user_goods_goods_id, user_goods.goods_name AS user_goods_goods_name, user_goods.goods_price AS user_goods_goods_price, user_goods.number AS user_goods_number, user_goods.feed_month AS user_goods_feed_month, user_goods.deliver_date AS user_goods_deliver_date, user_goods.status AS user_goods_status, user_goods.deliver_address_id AS user_goods_deliver_address_id, user_goods.create_date AS user_goods_create_date, user_goods.update_time AS user_goods_update_time \nFROM user_goods \nWHERE user_goods.user_id = %s'] [parameters: (1,)]
+
+[2018-08-20 10:04:05,997]-result.py:57-ERROR - OrderDetail error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 450, in _get
+    return self.render_html('app/order_detail.html',**info)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
+    return self.render(template_name, **kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
+    self.finish(self._render_string(template_name, **kwargs))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 121, in _render_string
+    return template.render_unicode(**kwargs).encode('utf-8','replace')
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 471, in render_unicode
+    as_unicode=True)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 838, in _render
+    **_kwargs_for_callable(callable_, data))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 873, in _render_context
+    _exec_template(inherit, lclcontext, args=args, kwargs=kwargs)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 899, in _exec_template
+    callable_(context, *args, **kwargs)
+  File "app_order_detail_html", line 62, in render_body
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 226, in __str__
+    raise NameError("Undefined")
+NameError: Undefined
+
+[2018-08-20 12:04:41,771]-result.py:57-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 220, in _get
+    address_id = int(self.get_argument('address_id', self.user.deliver_address_id))
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/utils/extend.py", line 25, in __getattr__
+    raise AttributeError, k
+AttributeError: 'deliver_address_id'
+
+[2018-08-20 12:32:57,247]-result.py:57-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 294, in _post
+    user_goods_id = service.insert(user_goods)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 20, in _deco
+    return func(self, *args, **kwargs)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 53, in insert
+    self.session.commit()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 801, in commit
+    self.transaction.commit()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 392, in commit
+    self._prepare_impl()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 372, in _prepare_impl
+    self.session.flush()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2019, in flush
+    self._flush(objects)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2137, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 60, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2101, in _flush
+    flush_context.execute()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 373, in execute
+    rec.execute(self)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 532, in execute
+    uow
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 174, in save_obj
+    mapper, table, insert)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 800, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 914, in execute
+    return meth(self, multiparams, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1010, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1146, in _execute_context
+    context)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1341, in _handle_dbapi_exception
+    exc_info
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 200, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1139, in _execute_context
+    context)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 450, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (_mysql_exceptions.OperationalError) (1048, "Column 'goods_price' cannot be null") [SQL: u'INSERT INTO user_goods (code, user_id, goods_id, goods_name, goods_price, number, feed_month, deliver_date, status, deliver_address_id, create_date, update_time) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'] [parameters: ('180820123257232008', 1, 1L, u'\u5927\u7ea2\u516c\u9e21', None, 1, 5, datetime.datetime(2019, 1, 18, 12, 24, 23, 258858), 0, 2, datetime.datetime(2018, 8, 20, 12, 32, 57, 233374), datetime.datetime(2018, 8, 20, 12, 32, 57, 233383))]
+
+[2018-08-20 12:34:07,465]-result.py:57-ERROR - BuyGoods error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 294, in _post
+    user_goods_id = service.insert(user_goods)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 20, in _deco
+    return func(self, *args, **kwargs)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 53, in insert
+    self.session.commit()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 801, in commit
+    self.transaction.commit()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 392, in commit
+    self._prepare_impl()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 372, in _prepare_impl
+    self.session.flush()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2019, in flush
+    self._flush(objects)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2137, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 60, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2101, in _flush
+    flush_context.execute()
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 373, in execute
+    rec.execute(self)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 532, in execute
+    uow
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 174, in save_obj
+    mapper, table, insert)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 800, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 914, in execute
+    return meth(self, multiparams, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1010, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1146, in _execute_context
+    context)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1341, in _handle_dbapi_exception
+    exc_info
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 200, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1139, in _execute_context
+    context)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 450, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (_mysql_exceptions.OperationalError) (1048, "Column 'goods_price' cannot be null") [SQL: u'INSERT INTO user_goods (code, user_id, goods_id, goods_name, goods_price, number, feed_month, deliver_date, status, deliver_address_id, create_date, update_time) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'] [parameters: ('180820123407463924', 1, 1L, u'\u5927\u7ea2\u516c\u9e21', None, 10, 5, datetime.datetime(2019, 1, 18, 12, 24, 23, 258858), 0, 1, datetime.datetime(2018, 8, 20, 12, 34, 7, 464629), datetime.datetime(2018, 8, 20, 12, 34, 7, 464637))]
+
+[2018-08-20 16:59:53,650]-result.py:57-ERROR - OrderDetail error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 52, in __deco
+    return func(self)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 430, in _get
+    info['address'] = '{0}{1}'.format(address.region_name, address.address)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-9: ordinal not in range(128)
+

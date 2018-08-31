@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+  
+<script type="text/javascript">
+  	  function modify_goods(goods_id) {  
+          window.location.href='/admin/add_goods?goods_id='+goods_id +'&sign=1';
+      }
+
+  	  function add_goods_icon(goods_id) {  
+          window.location.href='/admin/add_goods_icon?goods_id='+goods_id;
+      }
+            
+  	  function remove_goods(goods_id) {  
+  	      var yes = confirm("are you sure?");   
+  	  	  if(yes){
+          	window.location.href='/admin/remove_goods?goods_id='+goods_id;
+          }
+      }      
+</script>  
+</head>  
+  
+<body>  
+  <h3>商品详情：</h3>  
+  
+  <div style="padding: 3px; border: 0px; solid #ddd;float:left">
+        <p>id(商品id) : ${id} <p />
+		<p>code(商品编号) : ${code} <p />
+		<p>name(商品名称) : ${name} <p />		
+		<p>price(商品价格) : ${price} 元 <p />					
+		<p>feed_day(喂养时长) : ${feed_day} 天<p />
+		<p>number(剩余数量) : ${number} <p />
+		<p>type(商品类型) : ${type} <p />
+		<p>status(商品状态) : ${status} <p />
+		<p>
+		<p>brief(简介):
+		<br />
+		<textarea name="brief" cols="50" rows="5" form="weights">${brief}</textarea>				
+		<p />		
+		<p>detail(详细描述):
+		<br />
+		<textarea name="detail" cols="50" rows="10" form="weights">${detail}</textarea>		
+		<br />
+		<a href="javascript:void(null);" onclick="modify_goods('${id}')" style="font-weight:bold">->修改</a>	
+		&emsp;&emsp;&emsp;&emsp;
+		<a href="javascript:void(null);" onclick="remove_goods('${id}')" style="font-weight:bold">删除</a>	
+  </div> 
+  <div style="padding: 3px; border: 0px; solid #ddd; float:leftmargin-bottom:10px;">
+  		
+  		   % if icon:
+  		   <p>头像 : <br />
+  		       <img src="${icon}" height="150" width="150" />
+  		   </p>    
+  		   % endif   
+  		
+  		
+  		   % if big:
+  		   <p>详细图: <br />
+  		       <img src="${big[1]}" width="500" />
+  		   </p>    
+  		   % endif   
+  		
+		<p>大图 : <br />
+		% for _,pic in pics:
+			<img src="${pic}"  height="400" width="480" />
+		% endfor
+		</p>
+		<a href="javascript:void(null);" onclick="add_goods_icon('${id}')" style="font-weight:bold">->修改/上传图片</a>	
+   </div> 
+   <br />		
+                       
+</body>
+</html>

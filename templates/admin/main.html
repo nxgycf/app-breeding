@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>  
+  <title>breeding</title>  
+  </head>  
+  
+  <body>  
+    <div >
+    <H2>Hi, <span style="font-size:large;color:blue">${name}</span>, welcome! </H2>       
+
+    <h3>总览：</h3> 
+		<table id="stat" border="1" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td width="100" align="center" style="font-weight:bold">
+						商品ID
+					</td>					
+					<td width="120" align="center" style="font-weight:bold">
+						商品名称
+					</td>										
+					<td width="100" align="center" style="font-weight:bold">
+						领养数量
+					</td>	
+					<td width="100" align="center" style="font-weight:bold">
+					    领养人数
+					</td>	
+					<td width="150" align="center" style="font-weight:bold">
+						待发货(用户数)
+					</td>	
+					<td width="150" align="center" style="font-weight:bold">
+						已发货(用户数)
+					</td>																							
+				</tr>
+
+				% for vector in li:
+					<tr>
+						<td width="100" align="center">
+							${vector.goods_id}
+						</td>						
+						<td width="120" align="center">
+							${vector.goods_name}
+						</td>						
+						<td width="100" align="center">
+							${vector.goods_sum}
+						</td>							
+						<td width="100" align="center">
+							${vector.user_number}
+						</td>	
+						<td width="150" align="center">
+							${vector.feeding_num}
+						</td>	
+						<td width="150" align="center">
+							${vector.deliver_num}
+						</td>																																												
+					</tr>
+                 % endfor
+                                      
+			</tbody>
+		</table>		
+		          
+    </div>              
+  </body>
+</html>

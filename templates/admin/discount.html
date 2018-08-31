@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+</head>  
+  
+<body>  
+  <h3>
+	  活动优惠配置：
+  </h3>  
+    
+  <div style="padding: 2px; border: 0px solid #ddd;">
+		<form class="pop-response" action="/admin/discount" method="post">
+		    <input id="sign" type="hidden" name="sign" value="1" >
+		    <input id="type" type="hidden" name="type" value="1" >
+		    <span style="font-weight:bold;">折扣 ：某商品在某时间段享受某折扣，折扣数值用小数表示，例0.95表示九五折</span></br>
+			商品ID:
+			<input type="text" name="goods_id" value="" size="5"  required="required"/>&emsp;
+			起始时间:
+			<input type="text" name="start" value="" size="15" required="required"/>&emsp;
+			结束时间:
+			<input type="text" name="end" value="" size="15" required="required"/>&emsp;
+			折扣:
+			<input type="text" name="discount" value="" size="5" required="required"/>&emsp;
+			折扣描述:
+			<input type="text" name="desc" value="" size="20" required="required"/>
+			&emsp;&emsp;			
+			<button type="submit">提交</button>
+		</form>
+		</br>	
+
+		<form class="pop-response" action="/admin/discount" method="post">
+		    <span style="font-weight:bold;">满减 ：某商品在某时间段每满多少件减多少元</span></br>
+		    <input id="sign" type="hidden" name="sign" value="2" >
+		    <input id="type" type="hidden" name="type" value="2" >
+			商品ID:
+			<input type="text" name="goods_id" value="" size="5" required="required"/>&emsp;
+			起始时间:
+			<input type="text" name="start" value="" size="15" required="required"/>&emsp;
+			结束时间:
+			<input type="text" name="end" value="" size="15" required="required"/>&emsp;
+			数量:
+			<input type="text" name="num" value="" size="5" required="required"/>&emsp;
+			减额(元):
+			<input type="text" name="amount" value="" size="5" required="required"/>
+			&emsp;&emsp;			
+			<button type="submit">提交</button>
+		</form>	
+		
+	  <h3>
+		  已有活动
+	  </h3>  
+	     % for goods_id, v in infos:
+          <div style="padding: 5px; border: 1px solid #ddd;margin:5px;overflow:auto;float:left;">
+              <span style="font-weight:bold;">商品ID:${goods_id}</span></br>
+              % for item in v:
+                  % if item['type'] == 1:
+                  <div style="padding-right: 8px; border: 0px solid #ddd;float:left;display:inline;">
+	                  &emsp;折扣:</br>
+	                  &emsp;&emsp;	起始时间: ${item['start']}</br>
+	                  &emsp;&emsp;	结束时间: ${item['end']}</br>
+	                  &emsp;&emsp;	折扣: ${item['discount']}</br>
+	                  &emsp;&emsp;	折扣描述: ${item['desc']}</br>
+	                  &emsp;&emsp;&emsp;<a href="/admin/discount?sign=1&goods_id=${goods_id}&type=1">删除</a>
+                  </div>
+                  % elif item['type'] == 2:
+                  <div style="padding-right: 8px; border: 0px solid #ddd;float:left;display:inline;">
+	                  &emsp;满减:</br>
+	                  &emsp;&emsp;	起始时间: ${item['start']}</br>
+	                  &emsp;&emsp;	结束时间: ${item['end']}</br>
+	                  &emsp;&emsp;	数量：${item['num']}</br>
+	                  &emsp;&emsp;	减额：${item['amount']}</br>
+	                  &emsp;&emsp;&emsp;<a href="/admin/discount?sign=1&goods_id=${goods_id}&type=2">删除</a>
+	              </div>    
+                  % endif   
+              % endfor      
+          </div>
+        % endfor  
+  			  
+  </div>                     
+</body>
+</html>      

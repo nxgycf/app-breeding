@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	<style>
+	</style>
+	
+	<script src="../../static/js/zepto.min.js"></script>
+	<script src="../../static/js/slide.js"></script>
+	<script type="text/javascript">
+  
+	</script>
+</head>
+<body>
+    <header id="title" class="text-center">农场精品</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>
+	<div class="stitle">
+		<div class="st">物品详情</div> 
+		<a href="/app"><img src="../../static/image/index.png"/></a>
+	</div>  
+
+    <div class="pictrue">
+        <ul class="images">
+            % for pic in pics:
+        			<li style="background-color: green;">
+        				<img src="${pic}" >
+        			</li>
+            % endfor
+        </ul>
+        <div class="index">
+            <ul>
+	           % for i in xrange(len(pics)):
+	               % if i==0:
+		            <li class="on">
+		            </li>
+		           % else:
+		            <li>
+		            </li>
+	              % endif
+	           % endfor  
+            </ul>
+        </div>
+    </div> 
+    	    
+    <div class="farm">
+    
+	 	<div class="gd">	     
+            % if last_price < price:
+                <p class="price">￥${last_price}  <span class="nprice">￥${price}</span></p>
+            % else:
+                <p class="price">￥${price}</p>
+            % endif
+	        <p class="name">${name} <span class="brief">${brief}</span></p>
+
+            % if type == 1:
+               % if feed_day == 0:
+                   <p class="brief">喂养周期 : 现货</p>
+               % else:
+                   <p class="brief">喂养周期 : ${feed_day} 天</p>
+               % endif 
+            % else:
+               % if feed_day == 0:
+                   <p class="brief">种植周期 : 现货</p>
+               % else:
+                   <p class="brief">种植周期 : ${feed_day} 天</p>
+               % endif 
+            %endif
+            
+            <p class="brief">预计发货时间 : ${deliver_date}</p>
+		                
+	        % if dis_desc:
+	        		<p class="discount">${dis_desc}</p>
+	        % endif
+	    </div>    
+	    
+	 	<div class="text">	   
+	        <p>${detail}</p>
+	    </div>   
+	    
+	    % if detail_pic:
+        <div class="gp">
+        		<img src="${detail_pic}" alt="商品图片">  
+        </div> 
+        % endif  
+        	    
+    </div> 
+
+	<div class="confirm_menu">
+	    <form action="/goods/buy" method="get"> 
+	        <input id="goods_id" type="hidden" name="goods_id" value="${id}" >
+	        <button type="submit">立即购买</button>  
+	    </form>
+	</div> 
+	    
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	
+</body>    

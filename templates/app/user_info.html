@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	<script type="text/javascript">
+	    
+	</script>
+</head>
+<body>
+    <header id="title" class="text-center">个人信息</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>
+    
+	<div class="info">	
+	    <div class="front">	    
+	        <ul><li>
+	            <div class="ut">
+	                % if avatar:
+	                    <img src="${avatar}">
+	                % else:
+	                    <img src="../../static/image/user.png">  
+	                % endif    
+	            </div>
+                <div class="pt">
+                    <p>${nickname}</p>
+                    <p>${phone}</p>
+                </div>	            
+	        </li></ul>
+        </div>
+        <div class="item">	
+	        	<a href="/app?index=1" >我的订单
+		        <img src="../../static/image/rarrow.png">   
+	        </a>         
+	        <a href="/user/address_list" >我的地址
+		        <img src="../../static/image/rarrow.png">   
+	        </a>   
+	        <a href="/user/reset_password" >修改密码
+		        <img src="../../static/image/rarrow.png">   
+	        </a>   
+	   </div>       
+	   <div class="item">	
+	        	<a href="/protocol" >服务协议
+		        <img src="../../static/image/rarrow.png">   
+	        </a> 	  
+	        <a href="/about" >关于我们
+		        <img src="../../static/image/rarrow.png">   
+	        </a> 	               	        
+        </div>  
+        
+        <div class="item">	
+	        <a href="/user/logout"><span>退出登录</span>
+		        <img src="../../static/image/rarrow.png">   
+	        </a> 
+        </div>         
+	</div>					    
+    
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	
+</body>
+</html>	      

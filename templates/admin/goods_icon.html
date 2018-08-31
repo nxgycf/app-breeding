@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+</head>  
+  
+<body>  
+  <h3>
+	  修改/上传 商品图片：
+  </h3>  
+
+  <div style="padding:2px;padding-right:20px;float:left;">
+        <p>id(商品id) : ${id} </p>
+		<p>code(商品编号) : ${code} </p>
+		<p>name(商品名称) : ${name} </p>	  
+  		
+	   % if icon:
+	   <p>头像 （宽高比为 1：1）: <br />
+	       <img src="${icon}" height="150" width="150"/>
+	   </p>    
+	   % endif    
+
+	   % if big:
+	   <div style="border: 1px solid #ddd;overflow:auto;padding:5px;margin:5px;">
+	   <p>详细图: <br />
+	    <form action="/admin/add_goods_icon" method="post" >
+	        <img src="${big[1]}"  width="500"/>
+	        <br />
+	        <input type="hidden" name="sign" value="0"/>
+	        <input type="hidden" name="goods_id" value="${id}"/>
+	        <input type="hidden" name="pid" value="${big[0]}"/>
+	    		<input id="submit" type="submit" value="!删除?" align="center" style="color:#4D0000;font-size:15px;"/>  
+	    		<p></p>
+	    </form>
+	    </p>
+	    </div>
+	   % endif    
+  		
+  		<div style="border: 1px solid #ddd;overflow:auto;padding:5px;margin:5px;">
+		<p>大图（宽高比为 5：4，注意图片大小要一致）: <br />
+		% for pid,pic in pics:
+		    <form action="/admin/add_goods_icon" method="post" style="float:left;display:inline;">
+		        <img src="${pic}" height="400" width="480"/>
+		        <br />
+		        <input type="hidden" name="sign" value="0"/>
+		        <input type="hidden" name="goods_id" value="${id}"/>
+		        <input type="hidden" name="pid" value="${pid}"/>
+		    		<input id="submit" type="submit" value="!删除?" align="center" style="color:#4D0000;font-size:15px;"/>  
+		    		<p></p>
+		    </form>
+		% endfor	
+		</p>
+		</div>
+  </div>  
+  
+  <div style="padding: 2px; border: 1px solid #ddd;float:left;margin:5px;">   
+  <form enctype="multipart/form-data" action="/admin/add_goods_icon" method="post" >
+        <input type="hidden" name="sign" value="1"/>	
+        <input type="hidden" name="goods_id" value="${id}"/>
+        <p ><span style="font-weight:bold">上传/修改icon（宽高比为 1：1）: </span></p>
+        <input type="file" name="file" style="color:blue;">
+	    <input id="submit" type="submit" value="提交" />     									
+  </form>
+  </div> 
+
+  <div style="padding: 2px; border: 1px solid #ddd;float:left;margin:5px;">   
+  <form enctype="multipart/form-data" action="/admin/add_goods_icon" method="post" >
+        <input type="hidden" name="sign" value="2"/>	
+        <input type="hidden" name="goods_id" value="${id}"/>
+        <p ><span style="font-weight:bold">上传/修改详图: </span></p>
+        <input type="file" name="file" style="color:blue;">
+	    <input id="submit" type="submit" value="提交" />  									
+  </form>
+  </div> 
+    
+  <div style="padding: 2px; border: 1px solid #ddd;float:left;margin:5px;">
+  <form enctype="multipart/form-data" action="/admin/add_goods_icon" method="post" >
+        <input type="hidden" name="sign" value="3"/>	
+        <input type="hidden" name="goods_id" value="${id}"/>
+        <p><span style="font-weight:bold">上传picture（宽高比为 5：4，注意图片大小要一致）: </span></p>
+        <input type="file" name="file" style="color:blue;">
+	    <input id="submit" type="submit" value="提交" />  
+  </div>  
+
+  % if msg:
+     <p id="alert" style="color:red;">${msg}</p>   
+  % endif
+  	                   
+</body>
+</html>  

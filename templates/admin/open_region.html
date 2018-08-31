@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+</head>  
+  
+<body>  
+  <h3>
+	  商品开通地区限制：
+  </h3> 
+    
+    <div style="padding: 2px; border: 0px solid #ddd;">
+      <div style="padding: 5px; border: 1px solid #ddd;margin-bottom:5px;overflow:auto;">
+		<form class="pop-response" action="/admin/open_region" method="post">
+			<p>
+				商品ID:
+				<input type="text" name="goods_id" value="" size="5"  required="required"/>&emsp;
+			</p>	
+			<p>开通地区（填写地区ID，用英文逗号隔开，连续范围内一段ID可以用 '-' 表示， 例: 1,2,3-9,10,11 ）
+			    <br />
+				<textarea id="region_ids" name="region_ids" cols="100" rows="3"></textarea>				
+			</p>	
+			<button type="submit">提交</button>
+		</form>
+		</div>	
+
+	  <h3>
+		  已添加
+	  </h3>  
+	  		
+        % for goods_id, v in info:
+          <div style="padding: 5px; border: 1px solid #ddd;margin:5px;overflow:auto;float:left;">
+              <span style="font-weight:bold;">商品ID : ${goods_id}</span></br>
+              <p>开通地区 : ${v}</p> 
+              &emsp;<a href="/admin/open_region?sign=1&goods_id=${goods_id}">删除</a>
+          </div>
+        % endfor  
+	</div>  	  
+</body>
+</html>     

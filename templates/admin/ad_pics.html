@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+</head>  
+  
+<body>  
+  <h3>
+	  修改/上传 广告图片：
+  </h3>  
+
+  <p>广告图片（广告图片宽高比例：2：1, 注意图片大小要一致）</p>
+  <div style="border: 1px solid #ddd;overflow:auto;">
+
+		% for pid,pic,gid,null in pics:
+		    
+		    % if null != 0:
+			    <form action="/admin/ad_pics" method="post" style="display:inline;margin:10px;float:left;border: 1px solid #ddd;">
+			        % if gid != 0:
+			        <p>序号 : ${pid} &nbsp;&nbsp;&nbsp;&nbsp; 商品ID : ${gid}</p>
+			        % else:
+			        <p>序号 : ${pid}</p>
+			        % endif
+			        <img src="${pic}" height="250" width="500"/ style="margin:5px;"><br />
+			        <input type="hidden" name="pid" value="${pid}"/>
+			        <input type="hidden" name="pic" value="${pic}"/>
+			        <input type="hidden" name="sign" value="1"/>
+			    		<input id="submit" type="submit" value="!删除?" align="center" style="color:#4D0000;margin:5px;"/>  
+			    </form>
+		    % else:
+			  <form enctype="multipart/form-data" action="/admin/ad_pics" method="post" style="margin:10px;float:left;display:inline;border: 1px solid #ddd;">
+			        <p>序号 : ${pid}</p>
+			        <img src="${pic}" height="250" width="500" style="margin:5px;"/><br />
+			        <input type="hidden" name="pid" value="${pid}"/>
+			        <input type="hidden" name="sign" value="2"/>
+			        商品ID : <input type="text" name="gid" value="" size="5">
+			        <input type="file" name="file" style="color:blue;">
+				    <input id="submit" type="submit" value="提交" align="center"  style="margin:5px;"/>     									
+			  </form>
+			 % endif  
+		% endfor	
+  
+  </div>  
+
+	  % if msg:
+	     <p id="alert" style="color:red;">${msg}</p>   
+	  % endif
+	      
+</body>
+</html>    

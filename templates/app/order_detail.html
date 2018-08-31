@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />		
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<meta name="keywords" content="breeding" />
+	<meta name="description" content="breeding"/>
+	<title>breeding</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="../../static/css/main.css" rel="stylesheet">
+	<script type="text/javascript">
+	    
+	</script>
+</head>
+<body>
+    <header id="title" class="text-center">我的订单</header>
+    <div style="padding-bottom: 35px;background:#fff;border: 0px solid #fff;">
+    </div>
+	<div class="stitle">
+		<div class="st">订单详情</div> 
+		<a href="/app?index=1"><img src="../../static/image/index.png"/></a>
+	</div>  
+	
+    <div class="farm">
+        <a href="/goods/detail?goods_id=${goods_id}">
+			<div class="order-item">		        
+		        <ul><li>
+		                <img class="tp" src="${avatar}" alt="商品图片" >
+		                <div class="to">
+			                <p class="name">${goods_name} <span class="num">&nbsp;X${number}</span></p><br/>
+			                <p class="brief">${ftext}</p><br/>
+			                % if status == 1:
+			                    <p class="breeding">${stext} &nbsp;&nbsp;&nbsp;<span class="brief">${after}</span></p>
+		                    % else:
+			                    <p class="delivered">${stext} &nbsp;&nbsp;&nbsp;<span class="brief">${after}</span></p>
+		                    % endif 
+		                </div>
+		        </li></ul>
+			</div>
+		</a>	
+
+    	 	<div class="order-pay">	 
+    	 	    <div class="bl">
+    	 	        <p class="left">商品单价 :</p>
+    	 	        <p class="right"><span class="price">￥${goods_price}</span></p>
+    	 	    </div>  
+    	 	    <div class="bl">
+    	 	        <p class="left">购买数量 :</p>
+    	 	        <p class="right">${number}</p>
+    	 	    </div>   
+    	 	    <div class="bl">
+    	 	        <p class="left">优惠 :</p>
+    	 	        <p class="right"><span class="discount">- ￥${discount}</span></p>
+    	 	    </div>   
+    	 	    <div class="bl">
+    	 	        <p class="left">实付款 :</p>
+    	 	        <p class="right"><span class="amount">￥${amount}</span></p>
+    	 	    </div>   
+	    </div>
+	     
+        % if status == 2:
+	 		<div class="text">	       
+		        <p>快递名称 : ${express_name}</p>
+		        <p>快递单号 : ${express_no}</p>
+	    		</div>
+	    % endif
+
+    	 	<div class="text">	       
+	        <p><span class="name">${name}</span>  &nbsp;&nbsp;&nbsp;  ${phone}</p>
+	        <p>${address}</p>
+	    </div>
+	    
+	 	<div class="text">	   
+	 	    <p>订单编号 : ${code}</p>    
+	        <p>创建时间 : ${create_date}</p>
+	        <p>支付时间 : ${pay_date}</p>
+		    % if status == 2:    
+		        <p>发货日期 : ${deliver_date}</p>
+		    % else:
+		        <p>预计发货日期 : ${deliver_date}</p>
+		    %endif    
+	    </div>
+	</div>
+		   
+	<div style="padding-top: 45px;border: 0px solid #fff;">
+    </div>	
+</body> 
+</html>	   

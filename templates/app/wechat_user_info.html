@@ -20,18 +20,14 @@
     
 	<div class="info">	
 	    <div class="front">	    
-	        <ul><li>
-	            <div class="ut">
-	                % if avatar:
-	                    <img src="${avatar}">
-	                % else:
-	                    <img src="../../static/image/user.png">  
-	                % endif    
-	            </div>
-                <div class="pt">
-                    <p>${nickname}</p>
-                </div>	            
-	        </li></ul>
+            <div class="ut">
+                % if avatar:
+                    <img src="${avatar}">
+                % else:
+                    <img src="../../static/image/user.png">  
+                % endif    
+                <div><span class="name">${nickname}</span></div>
+            </div>
         </div>
         <div class="item">	
 	        	<a href="/app?index=1" >我的订单

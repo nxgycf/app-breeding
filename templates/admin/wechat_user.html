@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>  
+  <title>breeding</title>  
+</head>  
+  
+<body>  
+  <h2>查看用户：</h2>  
+  
+  <div style="padding: 2px; border: 0px solid #ddd;">
+		<form class="pop-response" action="/admin/look_user" method="post">
+			用户ID:
+			<input type="text" name="uid" value="${uid}" size="20"/>
+			&emsp;&emsp;		
+			<button type="submit">提交</button>
+		</form>	
+		
+	     % if msg:
+	       <p id="alert" style="color:red">${msg}</p>   
+	     % else: 	
+	     	
+		<h3>用户信息：</h3>   
+		<p>用户ID  : ${user_id} <p />
+		<p>用户昵称 : ${nickname} <p />
+		
+		% if account:
+			<p>用户账号 : ${account} <p />	
+		% endif	
+		% if phone:
+			<p>用户电话 : ${phone} <p />
+		% endif	
+		
+		<h3>用户邮寄地址：</h3>   
+		<table id="stat" border="1" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td width="120" align="center" style="font-weight:bold">
+						收货人称呼
+					</td>	
+					<td width="120" align="center" style="font-weight:bold">
+						收货人电话
+					</td>	
+					<td width="520" align="center" style="font-weight:bold">
+						收货人地址
+					</td>	
+					<td width="380" align="center" style="font-weight:bold">
+						地区/地区ID
+					</td>																	
+				</tr>
+
+				% for vector in address:
+					<tr>	
+						<td width="120" align="center">
+							${vector.name}
+						</td>
+						<td width="120" align="center">
+							${vector.phone}
+						</td>						
+						<td width="520" align="center">
+							${vector.address}
+						</td>								
+						<td width="380" align="center">
+							 ${vector.region_name}/${vector.region_id}
+						</td>																																						
+					</tr>
+                 % endfor
+                                      
+			</tbody>
+		</table>
+		<h3>用户商品：</h3> 
+		<table id="stat" border="1" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<td width="120" align="center" style="font-weight:bold">
+						商品ID
+					</td>					
+					<td width="120" align="center" style="font-weight:bold">
+						商品名称
+					</td>						
+					<td width="100" align="center" style="font-weight:bold">
+						数量
+					</td>	
+					<td width="120" align="center" style="font-weight:bold">
+					    出货日期
+					</td>	
+					<td width="150" align="center" style="font-weight:bold">
+						状态
+					</td>																		
+				</tr>
+
+				% for vector in goods:
+					<tr>
+						<td width="120" align="center">
+							${vector.goods_id}
+						</td>						
+						<td width="120" align="center">
+							${vector.goods_name}
+						</td>
+						<td width="100" align="center">
+							${vector.number}
+						</td>							
+						<td width="120" align="center">
+							${vector.deliver_date}
+						</td>	
+						<td width="120" align="center">
+							${vector.status}
+						</td>																																						
+					</tr>
+                 % endfor
+                                      
+			</tbody>
+		</table>		
+		% endif
+  </div>                     
+</body>
+  
+</html>

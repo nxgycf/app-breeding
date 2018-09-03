@@ -165,11 +165,17 @@ img {
 
 /*user info*/ 
 .info{}
-.front{border:1px solid #eee;margin:10px;background:#d2f3d2;overflow:auto;}
+.front{
+	border:1px solid #eee;
+	margin:10px;
+	background:url('../../static/image/header.png');
+	height:120px;
+	overflow:auto;
+}
 .front .ut{margin:5px;text-align: center;}
 .front .ut>img{height:75px;width:75px;border-radius:50%;padding:5px;}
 .front .ut .name{font-size:14px;font-weight:bold;color:#000066;}
-.front .ut .phone{font-size:12px;color:#7B7B7B;}
+.front .ut .phone{font-size:12px;color:#000066;}
 
 .item{font-size:18px;position: relative;border-top:1px solid #eee;margin:10px;display:block;overflow:auto;}
 .item a{border-bottom:1px solid #eee;text-decoration: none;color:black;padding:8px 0px 8px 8px;display:block;}

@@ -168,7 +168,7 @@ img {
 .front{
 	border:1px solid #eee;
 	margin:10px;
-	background:url('../../static/image/header.png');
+	background:url('../../static/image/header_bg.png');
 	height:120px;
 	overflow:auto;
 }

@@ -1,176 +1,126 @@
-[2018-08-30 10:28:49,909]-result.py:58-ERROR - GoodsList error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 55, in __deco
+[2018-08-31 17:41:17,943]-result.py:58-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
     return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 152, in _get
-    return self.render_html('app/goods_list.html')
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
-    return self.render(template_name, **kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
-    self.finish(self._render_string(template_name, **kwargs))
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 121, in _render_string
-    return template.render_unicode(**kwargs).encode('utf-8','replace')
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 471, in render_unicode
-    as_unicode=True)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 838, in _render
-    **_kwargs_for_callable(callable_, data))
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 873, in _render_context
-    _exec_template(inherit, lclcontext, args=args, kwargs=kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 899, in _exec_template
-    callable_(context, *args, **kwargs)
-  File "app_goods_list_html", line 24, in render_body
-TypeError: object of type 'Undefined' has no len()
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 416, in _post
+    orders = user_goods_service.gets(user_id=self.user.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/cache.py", line 25, in __deco
+    obj = self.cache.get_obj(key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/cache/db_cache.py", line 77, in get_obj
+    val = self.conn.get(key)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 880, in get
+    return self.execute_command('GET', name)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 578, in execute_command
+    connection.send_command(*args)
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 563, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 538, in send_packed_command
+    self.connect()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 442, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 192.168.1.165:6381. Connection refused.
 
-[2018-08-30 10:31:51,474]-result.py:58-ERROR - GoodsList error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 55, in __deco
+[2018-08-31 17:41:23,124]-result.py:58-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
     return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 152, in _get
-    return self.render_html('app/goods_list.html')
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
-    return self.render(template_name, **kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
-    self.finish(self._render_string(template_name, **kwargs))
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 121, in _render_string
-    return template.render_unicode(**kwargs).encode('utf-8','replace')
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 471, in render_unicode
-    as_unicode=True)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 838, in _render
-    **_kwargs_for_callable(callable_, data))
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 873, in _render_context
-    _exec_template(inherit, lclcontext, args=args, kwargs=kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 899, in _exec_template
-    callable_(context, *args, **kwargs)
-  File "app_goods_list_html", line 24, in render_body
-TypeError: object of type 'Undefined' has no len()
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 416, in _post
+    orders = user_goods_service.gets(user_id=self.user.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/cache.py", line 25, in __deco
+    obj = self.cache.get_obj(key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/cache/db_cache.py", line 77, in get_obj
+    val = self.conn.get(key)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 880, in get
+    return self.execute_command('GET', name)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 578, in execute_command
+    connection.send_command(*args)
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 563, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 538, in send_packed_command
+    self.connect()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 442, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 192.168.1.165:6381. Connection refused.
 
-[2018-08-30 10:32:58,702]-result.py:58-ERROR - GoodsList error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 55, in __deco
+[2018-08-31 17:41:27,414]-result.py:58-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
     return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 152, in _get
-    return self.render_html('app/goods_list.html')
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 130, in render_html
-    return self.render(template_name, **kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 125, in render
-    self.finish(self._render_string(template_name, **kwargs))
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/handler.py", line 121, in _render_string
-    return template.render_unicode(**kwargs).encode('utf-8','replace')
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/template.py", line 471, in render_unicode
-    as_unicode=True)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 838, in _render
-    **_kwargs_for_callable(callable_, data))
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 873, in _render_context
-    _exec_template(inherit, lclcontext, args=args, kwargs=kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/mako/runtime.py", line 899, in _exec_template
-    callable_(context, *args, **kwargs)
-  File "app_goods_list_html", line 22, in render_body
-TypeError: 'Undefined' object is not iterable
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 416, in _post
+    orders = user_goods_service.gets(user_id=self.user.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/cache.py", line 25, in __deco
+    obj = self.cache.get_obj(key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/cache/db_cache.py", line 77, in get_obj
+    val = self.conn.get(key)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 880, in get
+    return self.execute_command('GET', name)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 578, in execute_command
+    connection.send_command(*args)
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 563, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 538, in send_packed_command
+    self.connect()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 442, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 192.168.1.165:6381. Connection refused.
 
-[2018-08-30 12:26:34,511]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+[2018-08-31 17:56:54,084]-result.py:58-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
     return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 104, in _get
-    pics = self.get_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 92, in get_pics
-    pm[int(sp[0])] = f
-ValueError: invalid literal for int() with base 10: '.DS'
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 416, in _post
+    orders = user_goods_service.gets(user_id=self.user.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/cache.py", line 25, in __deco
+    obj = self.cache.get_obj(key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/cache/db_cache.py", line 77, in get_obj
+    val = self.conn.get(key)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 880, in get
+    return self.execute_command('GET', name)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 578, in execute_command
+    connection.send_command(*args)
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 563, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 538, in send_packed_command
+    self.connect()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 442, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 192.168.1.165:6381. Connection refused.
 
-[2018-08-30 12:26:37,053]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+[2018-08-31 17:56:56,406]-result.py:58-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
     return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 104, in _get
-    pics = self.get_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 92, in get_pics
-    pm[int(sp[0])] = f
-ValueError: invalid literal for int() with base 10: '.DS'
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 416, in _post
+    orders = user_goods_service.gets(user_id=self.user.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/cache.py", line 25, in __deco
+    obj = self.cache.get_obj(key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/cache/db_cache.py", line 77, in get_obj
+    val = self.conn.get(key)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 880, in get
+    return self.execute_command('GET', name)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 578, in execute_command
+    connection.send_command(*args)
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 563, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 538, in send_packed_command
+    self.connect()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 442, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 61 connecting to 192.168.1.165:6381. Connection refused.
 
-[2018-08-30 12:27:56,719]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
+[2018-08-31 18:02:44,102]-result.py:58-ERROR - OrderList error:Traceback (most recent call last):
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 53, in __deco
     return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 104, in _get
-    pics = self.get_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 92, in get_pics
-    pm[int(sp[0])] = f
-ValueError: invalid literal for int() with base 10: '.DS'
-
-[2018-08-30 12:28:25,585]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 104, in _get
-    pics = self.get_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 92, in get_pics
-    pm[int(sp[0])] = f
-ValueError: invalid literal for int() with base 10: '.DS'
-
-[2018-08-30 12:28:28,088]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 104, in _get
-    pics = self.get_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 92, in get_pics
-    pm[int(sp[0])] = f
-ValueError: invalid literal for int() with base 10: '.DS'
-
-[2018-08-30 12:28:32,318]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 104, in _get
-    pics = self.get_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 92, in get_pics
-    pm[int(sp[0])] = f
-ValueError: invalid literal for int() with base 10: '.DS'
-
-[2018-08-30 12:31:41,640]-result.py:58-ERROR - GoodsList error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 55, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 152, in _get
-    ad_pics = self.get_ad_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 207, in get_ad_pics
-    pics.append((path, int(goods_id)))
-ValueError: invalid literal for int() with base 10: 'Store'
-
-[2018-08-30 12:31:52,285]-result.py:58-ERROR - GoodsList error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 55, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 152, in _get
-    ad_pics = self.get_ad_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 207, in get_ad_pics
-    pics.append((path, int(goods_id)))
-ValueError: invalid literal for int() with base 10: 'Store'
-
-[2018-08-30 12:52:48,308]-result.py:58-ERROR - GoodsList error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/common/result.py", line 55, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 152, in _get
-    ad_pics = self.get_ad_pics()
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/goods.py", line 209, in get_ad_pics
-    pics.append((path, int(goods_id)))
-UnboundLocalError: local variable 'path' referenced before assignment
-
-[2018-08-30 13:14:48,508]-result.py:34-ERROR - AdPicUploadHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/user.py", line 124, in _post
-    gid = int(self.get_argument("gid", '0').strip())
-ValueError: invalid literal for int() with base 10: ''
-
-[2018-08-30 14:46:50,850]-result.py:34-ERROR - AddGoodsHandler error:Traceback (most recent call last):
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/common/result.py", line 29, in __deco
-    return func(self)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/admin/handlers/goods.py", line 136, in _post
-    service.insert(info)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/services/goods.py", line 30, in insert
-    return super(GoodsService, self).insert(obj)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 23, in _deco
-    return func(self, *args, **kwargs)
-  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/service.py", line 56, in insert
-    obj = self.model(**obj) if isinstance(obj, dict) else obj
-  File "<string>", line 4, in __init__
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/state.py", line 306, in _initialize_instance
-    manager.dispatch.init_failure(self, args, kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 60, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/orm/state.py", line 303, in _initialize_instance
-    return manager.original_init(*mixed[1:], **kwargs)
-  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/sqlalchemy/ext/declarative/base.py", line 648, in _declarative_constructor
-    (k, cls_.__name__))
-TypeError: 'types' is an invalid keyword argument for GoodsInfo
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/app/handlers/user.py", line 416, in _post
+    orders = user_goods_service.gets(user_id=self.user.id)
+  File "/Users/shuai.chen/eclipse-workspace/app-breeding/base/cache.py", line 25, in __deco
+    obj = self.cache.get_obj(key)
+  File "/Users/shuai.chen/pyenv/lib/python2.7/site-packages/towgo-1.0.0-py2.7.egg/towgo/cache/db_cache.py", line 77, in get_obj
+    val = self.conn.get(key)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 880, in get
+    return self.execute_command('GET', name)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 579, in execute_command
+    return self.parse_response(connection, command_name, **options)
+  File "build/bdist.macosx-10.6-intel/egg/redis/client.py", line 585, in parse_response
+    response = connection.read_response()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 577, in read_response
+    response = self._parser.read_response()
+  File "build/bdist.macosx-10.6-intel/egg/redis/connection.py", line 255, in read_response
+    raise error
+BusyLoadingError: Redis is loading the dataset in memory
 

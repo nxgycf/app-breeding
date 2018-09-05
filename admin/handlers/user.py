@@ -78,7 +78,7 @@ class LookUsertHandler(TornadoHttpHandler):
             uinfo['goods'] = ugl
             uinfo['address'] = udal    
     
-            return self.render_html('admin/look_user.html',uid=user_id,account=account,msg=None,**uinfo) 
+            return self.render_html('admin/look_user.html',uid=user_id,msg=None,**uinfo) 
             
         return self.render_html('admin/look_user.html', uid=user_id,account=account,msg=u'该用户不存在!') 
 

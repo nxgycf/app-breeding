@@ -10,8 +10,8 @@ Created on 2016年4月27日
 #时间格式相互转换
 
 
-from datetime import datetime, timedelta, date
 import time
+from datetime import datetime, timedelta, date
 
 
 def to_str(dt,ft="%Y-%m-%d %H:%M:%S"):
@@ -27,7 +27,6 @@ def to_str(dt,ft="%Y-%m-%d %H:%M:%S"):
         return datetime.fromtimestamp(ldt).strftime(ft)  
     return dt
 
-
 def to_dt(sdt):
     """
     将时间字符串或时间戳转换成时间对象
@@ -42,8 +41,7 @@ def to_dt(sdt):
         if ldt > 10**12:
             return datetime.fromtimestamp(ldt/1000)
         return datetime.fromtimestamp(ldt)   
-    return sdt    
-    
+    return sdt     
 
 def to_ts(dt):
     """
@@ -59,7 +57,6 @@ def to_ts(dt):
         dto = time.strptime(dt, "%Y-%m-%d %H:%M:%S")
         return long(time.mktime(dto))
     return dt
-
 
 def to_date(sdt):
     """
@@ -77,19 +74,22 @@ def to_date(sdt):
         return date.fromtimestamp(ldt)   
     return sdt 
 
-def delta_str(dateStr=time.strftime("%Y-%m-%d"), delta=1, ft="%Y-%m-%d"):
-    """
-    接收一个日期字符串，时间格式，和偏移的天数，返回时间偏移后的日期字符串
-    """
-    baseDate =  datetime.strptime(dateStr, ft).date()
-    deltaDate = baseDate + timedelta(days=delta)
-    return deltaDate.strftime(ft) 
-
 def delta_dt(dt=datetime.now(), delta=1):
     '''
     返回间隔天数后的对象
     '''
     return dt + timedelta(days=delta)
+
+def delta_str(date=datetime.today(), delta=1, ft="%Y-%m-%d"):
+    """
+    接收一个日期 对象/字符串，偏移天数，返回时间偏移后的日期字符串
+    """
+    cur = date
+    if isinstance(date, str):
+        cur = datetime.strptime(date, "Y-%m-%d %H:%M:%S" if ":" in date else ft).date() 
+    delta_date = cur + timedelta(days=delta)
+    return delta_date.strftime(ft) 
+ 
 
 if __name__ == "__main__":
     print to_dt(1461721279458L) 
@@ -102,5 +102,6 @@ if __name__ == "__main__":
     print to_ts(datetime.now())
 
     print to_date(1461721279458L) 
-    print to_date("2015-08-10 10:02:33")      
+    print to_date("2015-08-10 10:02:33")    
+    print delta_str(delta=-1) 
     

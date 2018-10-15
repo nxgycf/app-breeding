@@ -92,16 +92,16 @@ def delta_str(date=datetime.today(), delta=1, ft="%Y-%m-%d"):
  
 
 if __name__ == "__main__":
-    print to_dt(1461721279458L) 
-    print to_dt("2015-08-10 10:02:33") 
+    print(to_dt(1461721279458))
+    print(to_dt("2015-08-10 10:02:33"))
 
-    print to_str(1461722832,'%Y-%m-%d %H:%M:%S')
-    print to_str(datetime.now(),'%Y-%m-%d %H:%M:%S')
+    print(to_str(1461722832,'%Y-%m-%d %H:%M:%S'))
+    print(to_str(datetime.now(),'%Y-%m-%d %H:%M:%S'))
     
-    print to_ts("2015-08-10 10:02:33")
-    print to_ts(datetime.now())
+    print(to_ts("2015-08-10 10:02:33"))
+    print(to_ts(datetime.now()))
 
-    print to_date(1461721279458L) 
-    print to_date("2015-08-10 10:02:33")    
-    print delta_str(delta=-1) 
+    print(to_date(1461721279458))
+    print(to_date("2015-08-10 10:02:33"))
+    print(delta_str(delta=-1))
     

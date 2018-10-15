@@ -6,8 +6,14 @@ Created on 2018年8月22日
 @author: shuai.chen
 '''
 
+import sys
 import functools
-import cPickle as pickle
+
+PY2 = sys.version_info[0] == 2
+if PY2:
+    import cPickle as pickle
+else:  
+    import pickle  
 
 from towgo.cache.db_cache import RedisCache
 

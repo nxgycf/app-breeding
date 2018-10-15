@@ -15,7 +15,7 @@ def get_password(password):
     '''
     获取原始密码md5值
     '''
-    return hashlib.md5(password).hexdigest()
+    return hashlib.md5(password.encode('UTF8')).hexdigest()
 
 def get_order_code():
     '''
@@ -78,8 +78,8 @@ def check_number_str(string):
 
 
 if __name__ == "__main__":
-    print check_account('')
-    print check_password('123456')
-    print get_order_code()
-    print gen_verify_code()
+    print(check_account(''))
+    print(check_password('123456'))
+    print(get_order_code())
+    print(gen_verify_code())
 

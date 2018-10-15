@@ -16,12 +16,12 @@ def initialize():
         from towgo.msetting import settings
         #init redis
         from towgo.cache.db_cache import RedisCache
-        for rcn,rconfigs in settings.REDIS.iteritems():
+        for rcn,rconfigs in settings.REDIS.items():
             RedisCache.connect(rcn,**rconfigs)     
                
         #init mysql
         from towgo.dbs.alchemy import Connection
-        for mcn,mconfigs in settings.MYSQL.iteritems():
+        for mcn,mconfigs in settings.MYSQL.items():
             Connection.connect(mcn,**mconfigs)  
         
     except:

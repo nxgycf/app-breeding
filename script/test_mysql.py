@@ -10,6 +10,9 @@ import json
 import datetime
 from towgo.dbs.sqldb import Model, Column, SqlConn
 
+from tornado.options import define
+define("settings", default='settings.development', help="running on the environment : development", type=str)
+
 MYSQL = {
          "default":{
                  "host":"127.0.0.1",
@@ -26,7 +29,7 @@ MYSQL = {
             }         
 }
 
-for mcn,mconfigs in MYSQL.iteritems():
+for mcn,mconfigs in MYSQL.items():
     SqlConn.connect(mcn,**mconfigs)  
     
 
@@ -89,7 +92,7 @@ for region in Region.getmany(region_level=1):
         v['childs'] = st[str(region.id)]
          
     ft.append(v) 
-print json.dumps(ft)        
+print(json.dumps(ft))    
 
          
         

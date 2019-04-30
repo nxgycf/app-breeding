@@ -22,7 +22,7 @@ avatar_id BIGINT NOT NULL DEFAULT 0 comment '头像ID',
 deliver_address_id BIGINT NOT NULL DEFAULT 0 comment '默认邮寄地址id',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (account,phone),
+KEY (phone),
 UNIQUE (account)
 )AUTO_INCREMENT=100000 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -38,7 +38,6 @@ headimgurl VARCHAR(128) NOT NULL DEFAULT '' comment '头像',
 deliver_address_id BIGINT NOT NULL DEFAULT 0 comment '默认邮寄地址id',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (openid),
 UNIQUE (openid)
 )AUTO_INCREMENT=100000 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -58,8 +57,13 @@ status TINYINT NOT NULL DEFAULT 0 comment '状态（0:待支付，1：喂养中/
 deliver_address_id BIGINT NOT NULL DEFAULT 0 comment '默认邮寄地址id',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (user_id,goods_id, deliver_date, code, transaction_id),
-UNIQUE (code, transaction_id)
+KEY user_id (user_id),
+KEY goods_id (goods_id),
+KEY deliver_date (deliver_date),
+KEY code (code),
+KEY transaction_id (transaction_id),
+UNIQUE (code),
+UNIQUE (transaction_id)
 )AUTO_INCREMENT=1 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table if not exists user_deliver_address(
@@ -74,7 +78,8 @@ region_name VARCHAR(128) NOT NULL DEFAULT '' comment '地区',
 status TINYINT NOT NULL DEFAULT 1 comment '1：正常，0：删除',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (user_id,status)
+INDEX (user_id),
+INDEX (status)
 )AUTO_INCREMENT=1 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table if not exists user_pay(
@@ -88,8 +93,10 @@ amount FLOAT NOT NULL comment '金额',
 status TINYINT NOT NULL comment '状态（0：失败，1：成功）',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (user_goods_id,user_id,goods_id,transaction_id),
-UNIQUE (user_goods_id, transaction_id)
+INDEX (user_id),
+INDEX (goods_id),
+UNIQUE (user_goods_id),
+UNIQUE (transaction_id)
 )AUTO_INCREMENT=1 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table if not exists deliver_info(
@@ -105,7 +112,9 @@ status TINYINT NOT NULL comment '状态（0：发货中，1：已完成）',
 deliver_address_id BIGINT NOT NULL DEFAULT 0 comment '默认邮寄地址id',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (user_goods_id,user_id,goods_id, create_date),
+INDEX (user_id),
+INDEX (goods_id), 
+INDEX (create_date),
 UNIQUE (user_goods_id)
 )AUTO_INCREMENT=1 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -133,7 +142,8 @@ detail VARCHAR(512) NOT NULL DEFAULT '' comment '描述',
 status TINYINT NOT NULL DEFAULT 0 comment '状态（0：正常，1：下架）',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (code, type, status),
+INDEX (type),
+INDEX (status),
 UNIQUE (code)
 )AUTO_INCREMENT=1 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -154,7 +164,8 @@ type TINYINT NOT NULL DEFAULT 0 comment '文件类型,0:普通图片,1:详细图
 path VARCHAR(128) NOT NULL DEFAULT '' comment '存放路径（绝对路径）',
 create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP comment '创建时间',
 update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-INDEX (goods_id, type)
+INDEX (goods_id),
+INDEX (type)
 )AUTO_INCREMENT=1 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 //new
